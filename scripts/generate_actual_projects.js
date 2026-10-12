@@ -77,7 +77,7 @@ function getCategory(name) {
   return { cat: 'electrical', label: 'Xây lắp' };
 }
 
-const destDir = path.join(__dirname, 'src', 'content', 'projects');
+const destDir = path.join(__dirname, '..', 'src', 'content', 'projects');
 
 // Clean directory
 if (fs.existsSync(destDir)) {

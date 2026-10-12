@@ -1,0 +1,76 @@
+<div class="hero__content hero__content--home">
+    <div class="hero__body hero__body--home">
+      
+      <h1 class="hero__title">We Live for a Challenge</h1>
+
+              <p class="hero__copy">At Bechtel, we partner with our customers to bring their ambitions to life, delivering projects that make a lasting, meaningful difference for people and communities around the world.</p>
+      
+      <div class="hero__cta">
+                  <div class="wp-block-button is-style-arrow-right-up">
+            <a href="https://www.bechtel.com/america-dreams-bechtel-builds/" class="wp-block-button__link wp-element-button has-bechtel-white-color has-text-color has-link-color" target="">America Dreams. Bechtel Builds.</a>
+          </div>
+              </div>
+    </div>
+
+    
+<div class="hero__slider" data-dynamic-id="csp-500a636ca60f">
+	<h2 class="screen-reader-text">Featured Posts</h2>
+	      	  <article class="hero__slide">
+			<figure class="hero__slide-figure">
+				<img width="1024" height="576" src="https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1024x576.webp" class="hero__slide-image wp-post-image" alt="" decoding="async" srcset="https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1024x576.webp 1024w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-300x169.webp 300w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-768x432.webp 768w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1536x864.webp 1536w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-675x380.webp 675w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-506x285.webp 506w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-900x506.webp 900w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3.webp 1920w" sizes="(max-width: 1024px) 100vw, 1024px">			</figure>
+			<h3 class="hero__slide-title">Bechtel and USC Partner to Build South Carolina’s Nuclear Workforce</h3>
+			<a class="hero__slide-link" href="https://www.bechtel.com/press-releases/bechtel-and-usc-partner-to-build-south-carolinas-nuclear-workforce/" aria-label="Read more about Bechtel and USC Partner to Build South Carolina’s Nuclear Workforce">
+				<svg class="svg-inline--fa fa-arrow-right hero__slide-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M443.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-176-176c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0L244.7 420.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l176-176z"></path></svg><!-- <i class="hero__slide-icon fal fa-arrow-right"></i> Font Awesome fontawesome.com -->
+			</a> 
+	  </article>
+	      	  <article class="hero__slide hero__slide--active">
+			<figure class="hero__slide-figure">
+				<img width="1024" height="577" src="https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-1024x577.webp" class="hero__slide-image wp-post-image" alt="" decoding="async" srcset="https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-1024x577.webp 1024w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-300x169.webp 300w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-768x432.webp 768w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-1536x865.webp 1536w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-675x380.webp 675w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-506x285.webp 506w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26-900x507.webp 900w, https://www.bechtel.com/wp-content/uploads/2026/09/OSWB-9.27.26.webp 2000w" sizes="(max-width: 1024px) 100vw, 1024px">			</figure>
+			<h3 class="hero__slide-title">Bechtel Draws on 128 Years of Proven Delivery to Lead the Next Era of Building&nbsp;</h3>
+			<a class="hero__slide-link" href="https://www.bechtel.com/press-releases/bechtel-draws-on-128-years-of-proven-delivery-to-lead-the-next-era-of-building/" aria-label="Read more about Bechtel Draws on 128 Years of Proven Delivery to Lead the Next Era of Building&nbsp;">
+				<svg class="svg-inline--fa fa-arrow-right hero__slide-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M443.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-176-176c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0L244.7 420.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l176-176z"></path></svg><!-- <i class="hero__slide-icon fal fa-arrow-right"></i> Font Awesome fontawesome.com -->
+			</a> 
+	  </article>
+	      	  <article class="hero__slide">
+			<figure class="hero__slide-figure">
+				<img width="1024" height="576" src="https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1024x576.webp" class="hero__slide-image wp-post-image" alt="" decoding="async" srcset="https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1024x576.webp 1024w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-300x169.webp 300w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-768x432.webp 768w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-1536x864.webp 1536w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-675x380.webp 675w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-506x285.webp 506w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3-900x506.webp 900w, https://www.bechtel.com/wp-content/uploads/2025/01/bechtel-media-default-3.webp 1920w" sizes="(max-width: 1024px) 100vw, 1024px">			</figure>
+			<h3 class="hero__slide-title">Bechtel-Westinghouse Consortium and PEJ Agree on Main Commercial Terms for Poland’s First Nuclear Power Plant&nbsp;</h3>
+			<a class="hero__slide-link" href="https://www.bechtel.com/press-releases/bechtel-westinghouse-consortium-and-pej-agree-on-main-commercial-terms-for-polands-first-nuclear-power-plant/" aria-label="Read more about Bechtel-Westinghouse Consortium and PEJ Agree on Main Commercial Terms for Poland’s First Nuclear Power Plant&nbsp;">
+				<svg class="svg-inline--fa fa-arrow-right hero__slide-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M443.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-176-176c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0L244.7 420.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l176-176z"></path></svg><!-- <i class="hero__slide-icon fal fa-arrow-right"></i> Font Awesome fontawesome.com -->
+			</a> 
+	  </article>
+	      	  <article class="hero__slide">
+			<figure class="hero__slide-figure">
+				<img width="906" height="544" src="https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2.webp" class="hero__slide-image wp-post-image" alt="" decoding="async" srcset="https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2.webp 906w, https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2-300x180.webp 300w, https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2-768x461.webp 768w, https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2-675x405.webp 675w, https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2-506x304.webp 506w, https://www.bechtel.com/wp-content/uploads/2026/06/Micron-image_blurred-2-900x540.webp 900w" sizes="(max-width: 906px) 100vw, 906px">			</figure>
+			<h3 class="hero__slide-title">Micron Selects Bechtel as Construction Partner for Historic New York Semiconductor Project</h3>
+			<a class="hero__slide-link" href="https://www.bechtel.com/press-releases/micron-selects-bechtel-as-construction-partner-for-historic-new-york-semiconductor-project/" aria-label="Read more about Micron Selects Bechtel as Construction Partner for Historic New York Semiconductor Project">
+				<svg class="svg-inline--fa fa-arrow-right hero__slide-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M443.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-176-176c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0L244.7 420.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l176-176z"></path></svg><!-- <i class="hero__slide-icon fal fa-arrow-right"></i> Font Awesome fontawesome.com -->
+			</a> 
+	  </article>
+	      	  <article class="hero__slide">
+			<figure class="hero__slide-figure">
+				<img width="1024" height="374" src="https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-1024x374.webp" class="hero__slide-image wp-post-image" alt="" decoding="async" srcset="https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-1024x374.webp 1024w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-300x110.webp 300w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-768x281.webp 768w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-1536x561.webp 1536w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-675x247.webp 675w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-506x185.webp 506w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2-900x329.webp 900w, https://www.bechtel.com/wp-content/uploads/2026/05/Sabine-Pass-Oct-2021-Wide-Shot-2.webp 2000w" sizes="(max-width: 1024px) 100vw, 1024px">			</figure>
+			<h3 class="hero__slide-title">Bechtel Greenlit for Sabine Pass&nbsp;Liquefaction&nbsp;Expansion in Southwest Louisiana&nbsp;</h3>
+			<a class="hero__slide-link" href="https://www.bechtel.com/press-releases/bechtel-greenlit-for-sabine-pass-liquefaction-expansion-in-southwest-louisiana/" aria-label="Read more about Bechtel Greenlit for Sabine Pass&nbsp;Liquefaction&nbsp;Expansion in Southwest Louisiana&nbsp;">
+				<svg class="svg-inline--fa fa-arrow-right hero__slide-icon" aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M443.3 267.3c6.2-6.2 6.2-16.4 0-22.6l-176-176c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L393.4 240 16 240c-8.8 0-16 7.2-16 16s7.2 16 16 16l377.4 0L244.7 420.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0l176-176z"></path></svg><!-- <i class="hero__slide-icon fal fa-arrow-right"></i> Font Awesome fontawesome.com -->
+			</a> 
+	  </article>
+	
+	<div class="hero__slide-pager">
+					<span class="hero__slide-page" data-dynamic-id="csp-abd9b5610aed"></span> 
+	  			<span class="hero__slide-page hero__slide-page--active" data-dynamic-id="csp-5066155cd662"></span> 
+	  			<span class="hero__slide-page" data-dynamic-id="csp-7e0b37d77ebc"></span> 
+	  			<span class="hero__slide-page" data-dynamic-id="csp-d5f33efac8c6"></span> 
+	  			<span class="hero__slide-page" data-dynamic-id="csp-3eadc9779168"></span> 
+	  	</div>
+
+	<div class="hero__slide-nav">
+		<button class="hero__slide-control hero__slide-control--prev" aria-label="Previous slide">
+			<svg class="svg-inline--fa fa-angle-left hero__slide-arrow" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"></path></svg><!-- <i class="hero__slide-arrow fas fa-angle-left"></i> Font Awesome fontawesome.com -->
+		</button>
+		<button class="hero__slide-control hero__slide-control--next" aria-label="Next slide">
+			<svg class="svg-inline--fa fa-angle-right hero__slide-arrow" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"></path></svg><!-- <i class="hero__slide-arrow fas fa-angle-right"></i> Font Awesome fontawesome.com -->
+		</button>
+	</div>
+</div>
+  </div>

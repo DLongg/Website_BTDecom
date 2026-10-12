@@ -1,5 +1,5 @@
 import { getAllProjects, projectCategories } from "@/lib/projects";
-import { ProjectsClient } from "./ProjectsClient";
+import { ProjectsClient } from "@/components/projects/ProjectsClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

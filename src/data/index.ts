@@ -1,4 +1,5 @@
 export * from "./services";
-export * from "./projects";
 export * from "./news";
-export * from "./testimonials";
+export * from "./about";
+export * from "./contact";
+export * from "./homepage";

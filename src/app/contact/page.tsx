@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { MapPin, Phone, Mail, ArrowUpRight, Users, Banknote } from "lucide-react";
 import { contact } from "@/data/contact";

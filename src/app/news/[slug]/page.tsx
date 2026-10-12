@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { news } from "@/data/news";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import Link from "next/link";
-import { CTASection } from "@/sections/CTASection";
+import { CTASection } from "@/components/home/CTASection";
 
 export function generateStaticParams() {
   return news.map((item) => ({

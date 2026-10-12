@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { CTASection } from "@/sections/CTASection";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { CTASection } from "@/components/home/CTASection";
 import type { Project } from "@/types";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";

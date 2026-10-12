@@ -1,10 +1,10 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { getProjectBySlug, getProjectSlugs } from "@/lib/projects";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Building, MapPin, Calendar, Layers, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import { CTASection } from "@/sections/CTASection";
+import { CTASection } from "@/components/home/CTASection";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import type { ReactNode } from "react";

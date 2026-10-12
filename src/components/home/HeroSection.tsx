@@ -51,7 +51,7 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
       </div>
 
       {/* Content */}
-      <div className="relative z-20 mx-auto w-full max-w-[1250px] px-4 md:px-6 pt-32 sm:pt-32 pb-12 sm:pb-20 h-full flex flex-col justify-end sm:justify-center">
+      <div className="relative z-20 mx-auto w-full max-w-[1350px] px-4 md:px-6 pt-32 sm:pt-32 pb-12 sm:pb-20 h-full flex flex-col justify-end sm:justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pb-32 sm:pb-0 mt-16 sm:mt-0">
           {/* Left - Main Content */}
           <div className="lg:col-span-7 text-left">

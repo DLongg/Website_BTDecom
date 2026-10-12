@@ -164,7 +164,7 @@ const projects = [
   }
 ];
 
-const dest = path.join(__dirname, 'content', 'projects');
+const dest = path.join(__dirname, '..', 'src', 'content', 'projects');
 
 projects.forEach(p => {
   const content = [

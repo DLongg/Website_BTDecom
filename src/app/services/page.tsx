@@ -1,9 +1,9 @@
 "use client";
 
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { CTASection } from "@/sections/CTASection";
+import { CTASection } from "@/components/home/CTASection";
 import { services } from "@/data/services";
 import Link from "next/link";
 import { ArrowRight, PenTool, Map, Compass, HardHat, ClipboardCheck, Eye, Zap, Flame, type LucideIcon } from "lucide-react";

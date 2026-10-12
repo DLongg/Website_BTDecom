@@ -1,13 +1,13 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
-import { HeroSection } from "@/sections/HeroSection";
-import { StatsSection } from "@/sections/StatsSection";
-import { ServicesSection } from "@/sections/ServicesSection";
-import { ProjectsSection } from "@/sections/ProjectsSection";
-import { AboutSection } from "@/sections/AboutSection";
-import { PartnerSection } from "@/sections/PartnerSection";
-import { NewsSection } from "@/sections/NewsSection";
-import { CTASection } from "@/sections/CTASection";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { HeroSection } from "@/components/home/HeroSection";
+import { StatsSection } from "@/components/home/StatsSection";
+import { ServicesSection } from "@/components/home/ServicesSection";
+import { ProjectsSection } from "@/components/home/ProjectsSection";
+import { AboutSection } from "@/components/home/AboutSection";
+import { PartnerSection } from "@/components/home/PartnerSection";
+import { NewsSection } from "@/components/home/NewsSection";
+import { CTASection } from "@/components/home/CTASection";
 import { getAllProjects } from "@/lib/projects";
 import { selectFeaturedProjects } from "@/data/homepage";
 
