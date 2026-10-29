@@ -9,7 +9,6 @@ import { LeadershipMessage } from "@/components/about/LeadershipMessage";
 import { WorkforceCapacity } from "@/components/about/WorkforceCapacity";
 import { EquipmentCapacity } from "@/components/about/EquipmentCapacity";
 import { OrganizationChart } from "@/components/about/OrganizationChart";
-import { BankAccounts } from "@/components/about/BankAccounts";
 import { AboutCTA } from "@/components/about/AboutCTA";
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
     siteName: "BT DECOM",
     images: [
       {
-        url: "/images/about/about-hero-sunset.jpg",
+        url: "/images/about/about-hero-construction.jpg",
         width: 1200,
         height: 630,
         alt: "Hồ sơ năng lực BT DECOM",
@@ -39,21 +38,20 @@ export default function AboutPage() {
       {/* Global Header */}
       <Header />
 
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1">
         {/* Section 01: Hero Banner */}
         <AboutHero />
 
         {/* Section 02: Company Statistics (Overlapping Hero) */}
         <CompanyStats />
 
-        {/* Section 03: Development Timeline */}
-        <CompanyTimeline />
-
-        {/* Section 05: Legal Information & Quick Facts */}
+        {/* Company overview and business information */}
         <LegalInformation />
 
         {/* Section 06: Leadership Message */}
         <LeadershipMessage />
+
+        <CompanyTimeline />
 
         {/* Section 07: Workforce Capacity & Accordion */}
         <WorkforceCapacity />
@@ -64,10 +62,7 @@ export default function AboutPage() {
         {/* Section 09: Organization Chart (3-tier tree) */}
         <OrganizationChart />
 
-        {/* Section 10: Bank Accounts & Copy Button */}
-        <BankAccounts />
-
-        {/* Section 11: Call to Action (CTA) */}
+        {/* Section 10: Call to Action (CTA) */}
         <AboutCTA />
       </main>
 

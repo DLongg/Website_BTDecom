@@ -1,50 +1,24 @@
 import { companyStats } from "@/data/about";
-import { BadgeCheck, Users, Cog, HardHat } from "lucide-react";
+import { Clock, Users, Wrench, Layers } from "lucide-react";
+
+const icons = { Clock, Users, Wrench, Layers };
 
 export function CompanyStats() {
-  const getIcon = (idx: number) => {
-    switch (idx) {
-      case 0:
-        return <BadgeCheck size={26} className="text-[#15803D]" />;
-      case 1:
-        return <Users size={26} className="text-[#15803D]" />;
-      case 2:
-        return <Cog size={26} className="text-[#15803D]" />;
-      case 3:
-      default:
-        return <HardHat size={26} className="text-[#15803D]" />;
-    }
-  };
-
   return (
-    <section className="relative z-20 -mt-10 sm:-mt-12 md:-mt-14 mb-14 sm:mb-18 px-4">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="bg-white rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-gray-100 p-6 sm:p-7 md:p-8 transition-all hover:shadow-[0_16px_45px_rgba(0,0,0,0.1)]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8">
-            {companyStats.map((stat, idx) => (
-              <div 
-                key={idx} 
-                className="flex items-center gap-4 group transition-transform hover:-translate-y-0.5"
-              >
-                {/* Circular Mint Icon Badge Matching Image 2 */}
-                <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-[#EAF5EF] border border-[#D1ECD7] flex items-center justify-center shrink-0 shadow-xs group-hover:scale-105 transition-transform">
-                  {getIcon(idx)}
-                </div>
-
-                {/* Number & Label Column */}
-                <div>
-                  <div className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold font-heading text-[#15803D] leading-none mb-1 tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs sm:text-[13.5px] font-medium text-gray-600 leading-snug">
-                    {stat.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+    <section className="site-container relative z-10 -mt-8" aria-label="BT DECOM qua những con số">
+      <dl className="grid grid-cols-2 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg shadow-brand-dark/5 lg:grid-cols-4">
+        {companyStats.map((stat) => {
+          const Icon = icons[stat.iconName];
+          return (
+            <div key={stat.label} className="border-r border-b border-gray-100 p-5 sm:p-7 lg:border-b-0">
+              <Icon size={22} className="mb-4 text-brand-primary" aria-hidden="true" />
+              <dt className="text-sm text-gray-600">{stat.label}</dt>
+              <dd className="mt-2 font-heading text-3xl font-semibold tracking-tight text-brand-primary sm:text-4xl">{stat.value}</dd>
+              <dd className="mt-2 hidden text-sm leading-relaxed text-gray-500 sm:block">{stat.description}</dd>
+            </div>
+          );
+        })}
+      </dl>
     </section>
   );
 }

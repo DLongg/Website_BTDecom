@@ -1,65 +1,30 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { legalProfile } from "@/data/about";
-import { Calendar, MapPin, UserCheck, FileCheck, ShieldCheck } from "lucide-react";
+import { AboutSectionHeading } from "./AboutSectionHeading";
 
 export function LegalInformation() {
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "Calendar":
-        return <Calendar size={28} className="text-emerald-700" />;
-      case "MapPin":
-        return <MapPin size={28} className="text-emerald-700" />;
-      case "UserCheck":
-        return <UserCheck size={28} className="text-emerald-700" />;
-      case "FileCheck":
-      default:
-        return <FileCheck size={28} className="text-emerald-700" />;
-    }
-  };
-
   return (
-    <section className="py-16 sm:py-20 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        
-        {/* Header with badge */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-100">
-            <ShieldCheck size={14} className="text-brand-gold" />
-            PHÁP LÝ & HỒ SƠ DOANH NGHIỆP
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-4">
-            Hồ Sơ Pháp Lý & Thông Tin Nhanh
-          </h2>
-          <div className="w-20 h-1 bg-brand-gold mx-auto rounded-full mb-3" />
-          <p className="text-gray-500 text-sm sm:text-base max-w-xl mx-auto">
-            Thông tin đăng ký doanh nghiệp minh bạch và tuân thủ đầy đủ pháp luật Việt Nam.
-          </p>
+    <section id="company-overview" className="home-section scroll-mt-24 bg-white" aria-labelledby="overview-heading">
+      <div className="site-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-gray-100 lg:aspect-[4/5]">
+          <Image src="/images/home/thi-cong-co-dien.jpg" alt="Lắp đặt hệ thống đường ống cơ điện tại công trình" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
         </div>
-
-        {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {legalProfile.map((item, idx) => (
-            <div 
-              key={idx}
-              className="group relative bg-[#F1F8E9]/60 hover:bg-[#F1F8E9] border border-emerald-200/60 hover:border-emerald-300 rounded-2xl p-6 sm:p-7 flex flex-col items-center text-center transition-all duration-300 hover:shadow-md hover:-translate-y-1"
-            >
-              {/* Icon Container */}
-              <div className="w-14 h-14 rounded-2xl bg-white border border-emerald-200 shadow-xs flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                {getIcon(item.iconName)}
+        <div>
+          <AboutSectionHeading id="overview-heading" eyebrow="Tổng quan doanh nghiệp" title="Nền tảng cho những công trình bền vững" />
+          <p className="text-base leading-relaxed text-gray-600">Thành lập ngày 25/12/2012 tại Hà Nội, BT DECOM hoạt động trong lĩnh vực xây lắp và thương mại kỹ thuật. Các lĩnh vực thi công gồm xây dựng dân dụng và công nghiệp, hệ thống cơ điện (MEP), trạm biến áp và đường dây trung thế.</p>
+          <p className="mt-4 text-base leading-relaxed text-gray-600">Đội ngũ chuyên môn, các đội xây lắp trực tiếp và hệ thống thiết bị đồng bộ là nền tảng để chúng tôi triển khai công việc từ khảo sát, tổ chức thi công đến bàn giao.</p>
+          <dl className="mt-7 grid gap-x-6 gap-y-5 border-y border-gray-200 py-6 sm:grid-cols-2">
+            {legalProfile.map((item) => (
+              <div key={item.label}>
+                <dt className="text-sm text-gray-500">{item.label}</dt>
+                <dd className="mt-1 text-base font-semibold leading-relaxed text-brand-dark">{item.value}</dd>
               </div>
-
-              {/* Label */}
-              <span className="text-xs uppercase tracking-wider font-semibold text-gray-500 mb-1.5">
-                {item.label}
-              </span>
-
-              {/* Value (prominent) */}
-              <span className="text-lg sm:text-xl font-bold font-heading text-brand-dark leading-snug">
-                {item.value}
-              </span>
-            </div>
-          ))}
+            ))}
+          </dl>
+          <Link href="/services" className="text-link mt-6">Khám phá lĩnh vực hoạt động <ArrowRight size={18} aria-hidden="true" /></Link>
         </div>
-
       </div>
     </section>
   );

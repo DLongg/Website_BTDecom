@@ -7,16 +7,14 @@ import {
 } from "@/data/about";
 import { Accordion, AccordionItem } from "@/components/ui/Accordion";
 import { 
-  Users, 
   GraduationCap, 
   Award, 
   HardHat, 
-  Zap, 
-  Wrench, 
   CheckCircle2, 
   Briefcase,
-  Layers
 } from "lucide-react";
+
+import { AboutSectionHeading } from "./AboutSectionHeading";
 
 export function WorkforceCapacity() {
   const accordionItems: AccordionItem[] = [
@@ -27,7 +25,7 @@ export function WorkforceCapacity() {
       icon: <Briefcase size={18} />,
       content: (
         <div className="space-y-4">
-          <div className="flex items-center justify-between bg-emerald-50/70 p-3 rounded-xl border border-emerald-100 text-xs sm:text-sm">
+          <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between bg-emerald-50/70 p-3 rounded-xl border border-emerald-100 text-xs sm:text-sm">
             <span className="font-semibold text-emerald-950">
               Đội ngũ quản lý dự án, kỹ sư thiết kế và chuyên viên nghiệp vụ
             </span>
@@ -64,7 +62,7 @@ export function WorkforceCapacity() {
       icon: <HardHat size={18} />,
       content: (
         <div className="space-y-4">
-          <div className="flex items-center justify-between bg-emerald-50/70 p-3 rounded-xl border border-emerald-100 text-xs sm:text-sm">
+          <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between bg-emerald-50/70 p-3 rounded-xl border border-emerald-100 text-xs sm:text-sm">
             <span className="font-semibold text-emerald-950">
               Đội ngũ trực tiếp thi công, thâm niên cao từ bậc 3/7 đến bậc 6/7
             </span>
@@ -98,26 +96,10 @@ export function WorkforceCapacity() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-gray-50/60 border-t border-gray-100">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+    <section aria-labelledby="workforce-heading" className="home-section bg-gray-50/60 border-t border-gray-100">
+      <div className="site-container">
         
-        {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-100">
-            <Users size={14} className="text-brand-gold" />
-            NGUỒN NHÂN LỰC CHẤT LƯỢNG CAO
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-4">
-            Năng Lực Nhân Sự
-          </h2>
-          <div className="w-20 h-1 bg-brand-gold mx-auto rounded-full mb-4" />
-          
-          {/* Main Total Badge */}
-          <div className="inline-flex items-center gap-3 bg-brand-dark text-white px-6 py-2.5 rounded-full font-bold text-sm sm:text-base shadow-lg shadow-brand-dark/10 mt-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Quy mô tổng thể: 82 Nhân sự</span>
-          </div>
-        </div>
+        <AboutSectionHeading id="workforce-heading" eyebrow="Đội ngũ thi công" title="Năng lực nhân sự" description="82 nhân sự gồm 28 cán bộ chuyên môn và 54 công nhân kỹ thuật, phối hợp từ quản lý dự án đến thi công tại công trường." />
 
         {/* 4 Stat Cards */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mb-12">
@@ -147,11 +129,11 @@ export function WorkforceCapacity() {
 
         {/* 2 Detailed Accordions */}
         <div className="max-w-4xl mx-auto">
-          <div className="mb-4 flex items-center justify-between text-xs sm:text-sm text-gray-600 px-1">
+          <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between text-xs sm:text-sm text-gray-600 px-1">
             <span className="font-semibold text-gray-800">Bảng phân bổ chi tiết chuyên môn:</span>
             <span className="text-gray-500">Nhấn vào từng nhóm để xem chi tiết</span>
           </div>
-          <Accordion items={accordionItems} defaultOpenIndex={0} />
+          <Accordion items={accordionItems} defaultOpenIndex={null} />
         </div>
 
       </div>

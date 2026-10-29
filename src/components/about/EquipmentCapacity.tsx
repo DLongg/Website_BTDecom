@@ -1,31 +1,20 @@
+import Image from "next/image";
 import { featuredEquipment } from "@/data/about";
 import { EquipmentModal } from "@/components/ui/EquipmentModal";
-import { Wrench, Shield, CheckCircle2 } from "lucide-react";
+import { Shield, CheckCircle2, Truck } from "lucide-react";
+
+import { AboutSectionHeading } from "./AboutSectionHeading";
 
 export function EquipmentCapacity() {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-white">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+    <section aria-labelledby="equipment-heading" className="home-section bg-white">
+      <div className="site-container">
         
-        {/* Section Header with EquipmentModal Trigger */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 pb-6 border-b border-gray-100">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-100">
-              <Wrench size={14} className="text-brand-gold" />
-              THIẾT BỊ CƠ GIỚI & ĐO KIỂM HIỆN ĐẠI
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-heading text-brand-dark mb-3">
-              Năng Lực Máy Móc & Thiết Bị Thi Công
-            </h2>
-            <div className="w-20 h-1 bg-brand-gold rounded-full mb-3" />
-            <p className="text-gray-500 text-sm sm:text-base max-w-2xl">
-              Hơn 50+ đầu thiết bị thi công xây lắp và dàn máy đo kiểm cao áp chuyên dụng, 100% tập kết tại Hà Nội sẵn sàng cơ động.
-            </p>
+        <div className="mb-8 flex flex-col justify-between gap-4 sm:mb-10 lg:flex-row lg:items-end">
+          <div className="max-w-2xl">
+            <AboutSectionHeading id="equipment-heading" eyebrow="Thiết bị thi công và đo kiểm" title="Năng lực máy móc, thiết bị" description="Hơn 50 đầu thiết bị thi công xây lắp và máy đo kiểm cao áp chuyên dụng, tập kết tại Hà Nội và sẵn sàng điều động." />
           </div>
-
-          <div className="shrink-0">
-            <EquipmentModal />
-          </div>
+          <div className="shrink-0 lg:pb-10"><EquipmentModal /></div>
         </div>
 
         {/* 6 Featured Equipment Cards - Grid 3 cols x 2 rows on Desktop */}
@@ -36,13 +25,19 @@ export function EquipmentCapacity() {
               className="group bg-white rounded-2xl border border-gray-200/80 hover:border-emerald-300 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
             >
               {/* Image Container with 4:3 Aspect Ratio */}
-              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-                <img 
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-gray-100">
+                {item.id === "crane-boom-12t5" ? (
+                  <div className="flex h-full flex-col items-center justify-center gap-3 bg-emerald-50 text-brand-primary" aria-label="Minh họa phương tiện vận tải">
+                    <Truck size={64} strokeWidth={1.25} aria-hidden="true" />
+                    <span className="font-heading text-2xl font-semibold">12,5 tấn</span>
+                  </div>
+                ) : <Image
                   src={item.image} 
                   alt={item.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  loading="lazy"
-                />
+                  fill
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
                 
                 {/* Category Pill Tag */}
