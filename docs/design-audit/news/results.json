@@ -1,0 +1,465 @@
+{
+  "timestamp": "2026-10-29T19:15:24.233Z",
+  "environment": {
+    "port": 9400,
+    "usingStaticMode": true,
+    "groundTruthArticleCount": 24
+  },
+  "checks": [
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: \"Người thật – Việc thật\" commitment headline present",
+      "pass": true,
+      "details": {
+        "commitmentMatch": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Commitments (No middleman, on-time salary, weekly advance) present",
+      "pass": true,
+      "details": {
+        "salaryGuarantee": true,
+        "weeklyAdvance": true,
+        "noMiddleman": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: 5 job positions present (Kỹ sư Điện, Thợ Điện Nước, KS Cấp thoát nước, CN Kỹ thuật, CN Thời vụ)",
+      "pass": true,
+      "details": {
+        "matchedPositions": [
+          {
+            "key": "electrician_engineer",
+            "label": "Kỹ sư Điện",
+            "matched": true
+          },
+          {
+            "key": "mep_worker",
+            "label": "Thợ Điện Nước",
+            "matched": true
+          },
+          {
+            "key": "water_engineer",
+            "label": "Kỹ sư Cấp thoát nước",
+            "matched": true
+          },
+          {
+            "key": "tech_worker",
+            "label": "Công nhân Kỹ thuật",
+            "matched": true
+          },
+          {
+            "key": "seasonal_worker",
+            "label": "Công nhân Thời vụ",
+            "matched": true
+          }
+        ]
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Job positions detail descriptions, requirements, and quantities present",
+      "pass": true,
+      "details": {
+        "hasQuantities": true,
+        "hasRequirements": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Direct phone CTA matches contact.ts (tel:0936189292)",
+      "pass": true,
+      "details": {
+        "expected": "tel:0936189292",
+        "observed": "tel:0936189292"
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Direct email CTA matches contact.ts (mailto:btdecom@gmail.com)",
+      "pass": true,
+      "details": {
+        "expected": "mailto:btdecom@gmail.com",
+        "observed": "mailto:btdecom@gmail.com"
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Zalo application contact CTA present",
+      "pass": true,
+      "details": {
+        "hasZaloCTA": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: 6 company benefits & welfare commitments displayed",
+      "pass": true,
+      "details": {
+        "hasBenefitSection": true,
+        "benefitItemsCount": 6,
+        "mentionsInsurance": true,
+        "mentionsBonus": true,
+        "mentionsSafety": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: 2 Lao Dong newspaper citations present with secure target=\"_blank\" rel=\"noopener noreferrer\"",
+      "pass": true,
+      "details": {
+        "mentionsLaoDong": true,
+        "laoDongLinksCount": 2,
+        "safeLinksCount": 2,
+        "quotesFound": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "Recruitment Hub: Real team and construction gallery present with WebP images and aspect ratios",
+      "pass": true,
+      "details": {
+        "totalGalleryImgs": 9,
+        "webpCount": 9,
+        "hasPortraitOrLandscape": true
+      }
+    },
+    {
+      "tier": 1,
+      "name": "News Listing \"Tất cả\": Recruitment highlight banner present with link to recruitment category",
+      "pass": true,
+      "details": {
+        "bannerExists": true,
+        "hasCTA": true,
+        "ctaHref": null
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Direct URL ?category=Tuyển dụng activates Tuyển dụng tab (aria-pressed=true)",
+      "pass": true,
+      "details": {
+        "currentSearch": "?category=Tuyển dụng",
+        "activeChipText": "Tuyển dụng\n3",
+        "recruitmentChipActive": true,
+        "isRecruitmentHubVisible": true
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Category switching dynamically updates URL query and aria-pressed attributes",
+      "pass": true,
+      "details": {
+        "searchAfterClick": "?category=Công+nghệ+&+Giải+pháp",
+        "techPressed": "true",
+        "searchAfterReset": "",
+        "allPressed": "true"
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Non-existent category query handled gracefully without crash or layout collapse",
+      "pass": true,
+      "details": {
+        "hasHeader": true,
+        "hasFooter": true,
+        "hasCrashMessage": false,
+        "pageRenderedWithoutCrash": true
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Search bar filters articles by keyword in real time",
+      "pass": true,
+      "details": {
+        "hasInput": true,
+        "initialCards": 7,
+        "filteredCardsCount": 6,
+        "allCardsMatch": true
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Empty search displays polite empty state and safely handles special characters",
+      "pass": true,
+      "details": {
+        "hasInput": true,
+        "hasEmptyNotice": true,
+        "hasResetBtn": true,
+        "adversarialSafe": true
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Pagination controls present with WCAG aria-current=\"page\" state",
+      "pass": true,
+      "details": {
+        "totalPageControls": 6,
+        "hasActivePage": true,
+        "activePageText": "1"
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Zero duplicate articles on listing page (0 repeated cards)",
+      "pass": true,
+      "details": {
+        "renderedArticleCount": 7,
+        "uniqueArticleCount": 7,
+        "hasDuplicates": false,
+        "duplicates": []
+      }
+    },
+    {
+      "tier": 2,
+      "name": "Featured card fake static indicator dots removed",
+      "pass": true,
+      "details": {
+        "fakeDotsCount": 0,
+        "hasFakeSlider": false
+      }
+    },
+    {
+      "tier": 3,
+      "name": "DOM Hierarchy: Exactly 1 visible <main> tag and zero nested <main> elements",
+      "pass": true,
+      "details": {
+        "mainCount": 1,
+        "hasNestedMain": false,
+        "hasSkipLink": true,
+        "hasMainContentTarget": true
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Accessibility: Skip-link targets #main-content anchor",
+      "pass": true,
+      "details": {
+        "mainCount": 1,
+        "hasNestedMain": false,
+        "hasSkipLink": true,
+        "hasMainContentTarget": true
+      }
+    },
+    {
+      "tier": 3,
+      "name": "WCAG 2.1 AA: Interactive touch targets (chips, search, pagination) have height >= 44px",
+      "pass": true,
+      "details": {
+        "totalChecked": 13,
+        "undersizedCount": 0,
+        "undersizedList": []
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Image Integrity: 0 broken images (HTTP 404) on /news listing",
+      "pass": true,
+      "details": {
+        "totalImages": 11,
+        "brokenCount": 0,
+        "brokenSources": []
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Image Quality: 0 low-res thumbnail images (< 300px) scaled up on news cards",
+      "pass": true,
+      "details": {
+        "totalCardImages": 0,
+        "blurryCount": 0,
+        "blurrySources": []
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Detail Page: Paragraph spacing >= 16px and bullet points styling",
+      "pass": true,
+      "details": {
+        "hasGoodSpacing": true
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Detail Page: Social share buttons (Facebook, LinkedIn, Copy, Print) functional with touch target >= 44px",
+      "pass": true,
+      "details": {
+        "shareButtonsCount": 4,
+        "undersizedShareCount": 0,
+        "hasFacebook": true,
+        "hasLinkedIn": true
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Detail Page: Adjacent Prev/Next navigation and related articles present",
+      "pass": true,
+      "details": {
+        "hasPrevOrNext": true
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Detail Page: 0 broken images on article detail page",
+      "pass": true,
+      "details": {
+        "brokenDetailImages": 0
+      }
+    },
+    {
+      "tier": 3,
+      "name": "Detail Page: Recruitment articles display Dedicated Apply Box with Hotline, Zalo, and Email",
+      "pass": true,
+      "details": {
+        "hasApplyBox": true,
+        "hasPhoneHref": true,
+        "hasEmailHref": true,
+        "hasZaloCTA": true,
+        "phoneHrefValue": "tel:0936189292",
+        "emailHrefValue": "mailto:btdecom@gmail.com?subject=%E1%BB%A8ng%20tuy%E1%BB%83n%20v%E1%BB%8B%20tr%C3%AD%20t%E1%BA%A1i%20BT%20DECOM"
+      }
+    },
+    {
+      "tier": 4,
+      "name": "No horizontal overflow on /news at 360px (Small Mobile (Galaxy S8/A-series))",
+      "pass": true,
+      "details": {
+        "scrollWidth": 360,
+        "viewportWidth": 360,
+        "bodyScrollWidth": 360,
+        "isOverflowing": false
+      }
+    },
+    {
+      "tier": 4,
+      "name": "No horizontal overflow on /news at 390px (Standard Mobile (iPhone 12-15))",
+      "pass": true,
+      "details": {
+        "scrollWidth": 390,
+        "viewportWidth": 390,
+        "bodyScrollWidth": 390,
+        "isOverflowing": false
+      }
+    },
+    {
+      "tier": 4,
+      "name": "No horizontal overflow on /news at 768px (Tablet Portrait (iPad Mini/Air))",
+      "pass": true,
+      "details": {
+        "scrollWidth": 760,
+        "viewportWidth": 768,
+        "bodyScrollWidth": 760,
+        "isOverflowing": false
+      }
+    },
+    {
+      "tier": 4,
+      "name": "No horizontal overflow on /news at 1024px (Tablet Landscape / Laptop)",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1016,
+        "viewportWidth": 1024,
+        "bodyScrollWidth": 1016,
+        "isOverflowing": false
+      }
+    },
+    {
+      "tier": 4,
+      "name": "No horizontal overflow on /news at 1440px (Standard Desktop (1440p))",
+      "pass": true,
+      "details": {
+        "scrollWidth": 1432,
+        "viewportWidth": 1440,
+        "bodyScrollWidth": 1432,
+        "isOverflowing": false
+      }
+    },
+    {
+      "tier": 4,
+      "name": "Static Export: All 24 article HTML files exist in out/news/",
+      "pass": true,
+      "details": {
+        "missingCount": 0,
+        "missingFiles": []
+      }
+    },
+    {
+      "tier": 4,
+      "name": "Static Export: All 24 static HTML files have individual <title>${title} | BT DECOM</title>",
+      "pass": true,
+      "details": {
+        "invalidCount": 0,
+        "sampleMismatch": null
+      }
+    },
+    {
+      "tier": 4,
+      "name": "Static Export: All 24 static HTML files have OpenGraph and meta description",
+      "pass": true,
+      "details": {
+        "missingMetaCount": 0,
+        "sampleMissing": null
+      }
+    },
+    {
+      "tier": 4,
+      "name": "Homepage Preservation: NewsSection maintains 3 curated articles from src/data/news.ts",
+      "pass": true,
+      "details": {
+        "hasSection": true,
+        "articleCount": 3,
+        "articleHeadings": [
+          "BT DECOM triển khai giai đoạn mới của dự án khu phức hợp thương mại – văn phòng tại Hà Nội",
+          "Giải pháp thi công MEP tối ưu cho công trình dân dụng và công nghiệp",
+          "BT DECOM đồng hành cùng mục tiêu phát triển công trình xanh tại Việt Nam"
+        ]
+      }
+    },
+    {
+      "tier": 4,
+      "name": "Navigation Preservation: Header keeps standard menu (no recruitment item), Footer links to /news?category=Tuyển dụng",
+      "pass": true,
+      "details": {
+        "headerLinks": [
+          "Trang chủ",
+          "Giới thiệu",
+          "Dịch vụ",
+          "Dự án",
+          "Tin tức",
+          "Liên hệ",
+          "Liên hệ tư vấn"
+        ],
+        "hasRecruitmentInHeader": false,
+        "hasFooterRecruitmentLink": true,
+        "footerRecruitmentHref": "/news?category=Tuyển dụng"
+      }
+    }
+  ],
+  "runtimeErrors": [],
+  "summary": {
+    "tierSummary": {
+      "tier1": {
+        "total": 11,
+        "passed": 11
+      },
+      "tier2": {
+        "total": 8,
+        "passed": 8
+      },
+      "tier3": {
+        "total": 10,
+        "passed": 10
+      },
+      "tier4": {
+        "total": 10,
+        "passed": 10
+      }
+    },
+    "totalChecks": 39,
+    "passedChecks": 39,
+    "failedChecks": 0,
+    "overallPass": true
+  }
+}
