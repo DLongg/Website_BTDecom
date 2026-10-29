@@ -323,6 +323,10 @@
       "pass": true
     },
     {
+      "name": "Link /projects/thi-cong-xay-lap-tram-bien-ap-750-kva-may-phat-dien-du-phong-100-kva-va-tuyen-c-6",
+      "pass": true
+    },
+    {
       "name": "Link /news/bt-decom-trien-khai-giai-doan-moi-du-an-khu-phuc-hop-ha-noi",
       "pass": true
     },
@@ -347,7 +351,7 @@
   "width360": {
     "width": 360,
     "height": 844,
-    "pageHeight": 7347,
+    "pageHeight": 6560,
     "scrollWidth": 352,
     "heading": "Chúng tôi sống\nvì thử thách",
     "sections": [
@@ -363,31 +367,31 @@
       {
         "heading": "Lĩnh vực hoạt động",
         "top": 1085,
-        "height": 1147
+        "height": 1086
       },
       {
         "heading": "Công trình tiêu biểu",
-        "top": 2232,
-        "height": 1650
+        "top": 2171,
+        "height": 982
       },
       {
         "heading": "Năng lực triển khai từng hạng mục",
-        "top": 3882,
+        "top": 3153,
         "height": 1151
       },
       {
         "heading": "Tin Tức & Sự Kiện",
-        "top": 5034,
-        "height": 826
+        "top": 4305,
+        "height": 768
       },
       {
         "heading": "KHÁCH HÀNG & ĐỐI TÁC CHIẾN LƯỢC TIÊU BIỂU",
-        "top": 5860,
+        "top": 5073,
         "height": 235
       },
       {
         "heading": "Bạn cần đơn vị thi công xây lắp chuyên nghiệp?",
-        "top": 6095,
+        "top": 5308,
         "height": 300
       }
     ],
@@ -397,16 +401,16 @@
     "deadLinks": 0,
     "brokenImages": [],
     "performance": {
-      "lcpMs": 1920,
-      "domContentLoadedMs": 79.89999999850988,
-      "resourceBytes": 7188959,
+      "lcpMs": 1436,
+      "domContentLoadedMs": 71.10000000009313,
+      "resourceBytes": 2373883,
       "videoRequests": []
     }
   },
   "width390": {
     "width": 390,
     "height": 844,
-    "pageHeight": 7259,
+    "pageHeight": 6421,
     "scrollWidth": 382,
     "heading": "Chúng tôi sống\nvì thử thách",
     "sections": [
@@ -422,31 +426,31 @@
       {
         "heading": "Lĩnh vực hoạt động",
         "top": 1085,
-        "height": 1121
+        "height": 1060
       },
       {
         "heading": "Công trình tiêu biểu",
-        "top": 2206,
-        "height": 1682
+        "top": 2145,
+        "height": 964
       },
       {
         "heading": "Năng lực triển khai từng hạng mục",
-        "top": 3888,
+        "top": 3109,
         "height": 1079
       },
       {
         "heading": "Tin Tức & Sự Kiện",
-        "top": 4968,
-        "height": 826
+        "top": 4188,
+        "height": 768
       },
       {
         "heading": "KHÁCH HÀNG & ĐỐI TÁC CHIẾN LƯỢC TIÊU BIỂU",
-        "top": 5794,
+        "top": 4956,
         "height": 235
       },
       {
         "heading": "Bạn cần đơn vị thi công xây lắp chuyên nghiệp?",
-        "top": 6029,
+        "top": 5191,
         "height": 300
       }
     ],
@@ -456,16 +460,16 @@
     "deadLinks": 0,
     "brokenImages": [],
     "performance": {
-      "lcpMs": 1380,
-      "domContentLoadedMs": 75.60000000149012,
-      "resourceBytes": 7163028,
+      "lcpMs": 1236,
+      "domContentLoadedMs": 47,
+      "resourceBytes": 2347952,
       "videoRequests": []
     }
   },
   "width768": {
     "width": 768,
     "height": 844,
-    "pageHeight": 7214,
+    "pageHeight": 6903,
     "scrollWidth": 760,
     "heading": "Chúng tôi sống\nvì thử thách",
     "sections": [
@@ -481,31 +485,31 @@
       {
         "heading": "Lĩnh vực hoạt động",
         "top": 1089,
-        "height": 733
+        "height": 742
       },
       {
         "heading": "Công trình tiêu biểu",
-        "top": 1822,
-        "height": 1604
+        "top": 1831,
+        "height": 1279
       },
       {
         "heading": "Năng lực triển khai từng hạng mục",
-        "top": 3426,
+        "top": 3110,
         "height": 1312
       },
       {
         "heading": "Tin Tức & Sự Kiện",
-        "top": 4737,
-        "height": 1375
+        "top": 4422,
+        "height": 1379
       },
       {
         "heading": "KHÁCH HÀNG & ĐỐI TÁC CHIẾN LƯỢC TIÊU BIỂU",
-        "top": 6112,
+        "top": 5801,
         "height": 247
       },
       {
         "heading": "Bạn cần đơn vị thi công\nxây lắp chuyên nghiệp?",
-        "top": 6359,
+        "top": 6048,
         "height": 358
       }
     ],
@@ -515,16 +519,16 @@
     "deadLinks": 0,
     "brokenImages": [],
     "performance": {
-      "lcpMs": 2660,
-      "domContentLoadedMs": 1339,
-      "resourceBytes": 7355772,
+      "lcpMs": 1320,
+      "domContentLoadedMs": 62.799999999813735,
+      "resourceBytes": 2347952,
       "videoRequests": []
     }
   },
   "width1024": {
     "width": 1024,
     "height": 844,
-    "pageHeight": 5471,
+    "pageHeight": 5297,
     "scrollWidth": 1016,
     "heading": "Chúng tôi sống\nvì thử thách",
     "sections": [
@@ -540,31 +544,31 @@
       {
         "heading": "Lĩnh vực hoạt động",
         "top": 993,
-        "height": 735
+        "height": 742
       },
       {
         "heading": "Công trình tiêu biểu",
-        "top": 1728,
-        "height": 940
+        "top": 1735,
+        "height": 759
       },
       {
         "heading": "Năng lực triển khai từng hạng mục",
-        "top": 2669,
+        "top": 2494,
         "height": 766
       },
       {
         "heading": "Tin Tức & Sự Kiện",
-        "top": 3434,
+        "top": 3260,
         "height": 929
       },
       {
         "heading": "KHÁCH HÀNG & ĐỐI TÁC CHIẾN LƯỢC TIÊU BIỂU",
-        "top": 4363,
+        "top": 4189,
         "height": 247
       },
       {
         "heading": "Bạn cần đơn vị thi công\nxây lắp chuyên nghiệp?",
-        "top": 4610,
+        "top": 4436,
         "height": 388
       }
     ],
@@ -574,16 +578,16 @@
     "deadLinks": 0,
     "brokenImages": [],
     "performance": {
-      "lcpMs": 620,
-      "domContentLoadedMs": 195.19999999925494,
-      "resourceBytes": 12371327,
+      "lcpMs": 340,
+      "domContentLoadedMs": 86.39999999990687,
+      "resourceBytes": 2459031,
       "videoRequests": []
     }
   },
   "width1440": {
     "width": 1440,
     "height": 900,
-    "pageHeight": 5760,
+    "pageHeight": 5526,
     "scrollWidth": 1432,
     "heading": "Chúng tôi sống\nvì thử thách",
     "sections": [
@@ -599,31 +603,31 @@
       {
         "heading": "Lĩnh vực hoạt động",
         "top": 1049,
-        "height": 723
+        "height": 719
       },
       {
         "heading": "Công trình tiêu biểu",
-        "top": 1772,
-        "height": 1092
+        "top": 1768,
+        "height": 862
       },
       {
         "heading": "Năng lực triển khai từng hạng mục",
-        "top": 2864,
+        "top": 2630,
         "height": 844
       },
       {
         "heading": "Tin Tức & Sự Kiện",
-        "top": 3708,
+        "top": 3474,
         "height": 944
       },
       {
         "heading": "KHÁCH HÀNG & ĐỐI TÁC CHIẾN LƯỢC TIÊU BIỂU",
-        "top": 4652,
+        "top": 4418,
         "height": 247
       },
       {
         "heading": "Bạn cần đơn vị thi công\nxây lắp chuyên nghiệp?",
-        "top": 4899,
+        "top": 4665,
         "height": 388
       }
     ],
@@ -633,9 +637,9 @@
     "deadLinks": 0,
     "brokenImages": [],
     "performance": {
-      "lcpMs": 536,
-      "domContentLoadedMs": 75,
-      "resourceBytes": 12371327,
+      "lcpMs": 424,
+      "domContentLoadedMs": 122.89999999990687,
+      "resourceBytes": 2459031,
       "videoRequests": []
     }
   }

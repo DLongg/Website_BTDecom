@@ -1,0 +1,407 @@
+{
+  "phase": "projects",
+  "staticMode": true,
+  "checks": [
+    {
+      "name": "No horizontal overflow 360",
+      "pass": true
+    },
+    {
+      "name": "Layout structure valid 360",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 390",
+      "pass": true
+    },
+    {
+      "name": "Layout structure valid 390",
+      "pass": true
+    },
+    {
+      "name": "Mobile 390px first project card starts before 650px",
+      "pass": true
+    },
+    {
+      "name": "Touch targets >= 44px on mobile",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 768",
+      "pass": true
+    },
+    {
+      "name": "Layout structure valid 768",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "Layout structure valid 1024",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "Layout structure valid 1440",
+      "pass": true
+    },
+    {
+      "name": "Image budget < 4 MB on /projects",
+      "pass": true
+    },
+    {
+      "name": "No broken images on /projects",
+      "pass": true
+    },
+    {
+      "name": "Category chip Tất cả present with count 26",
+      "pass": true
+    },
+    {
+      "name": "Category chip Chiếu sáng present with count 5",
+      "pass": true
+    },
+    {
+      "name": "Category chip Trạm biến áp & lưới điện present with count 2",
+      "pass": true
+    },
+    {
+      "name": "Category chip Hệ thống điện present with count 5",
+      "pass": true
+    },
+    {
+      "name": "Category chip Cơ điện M&E present with count 14",
+      "pass": true
+    },
+    {
+      "name": "Initial aria-pressed attribute state correct",
+      "pass": true
+    },
+    {
+      "name": "Filter click Chiếu sáng updates URL ?cat=lighting",
+      "pass": true
+    },
+    {
+      "name": "Filter click Chiếu sáng sets aria-pressed=true",
+      "pass": true
+    },
+    {
+      "name": "Filter click Chiếu sáng displays exact card count (5)",
+      "pass": true
+    },
+    {
+      "name": "Filter click Trạm biến áp & lưới điện updates URL ?cat=substation",
+      "pass": true
+    },
+    {
+      "name": "Filter click Trạm biến áp & lưới điện sets aria-pressed=true",
+      "pass": true
+    },
+    {
+      "name": "Filter click Trạm biến áp & lưới điện displays exact card count (2)",
+      "pass": true
+    },
+    {
+      "name": "Filter click Hệ thống điện updates URL ?cat=electrical",
+      "pass": true
+    },
+    {
+      "name": "Filter click Hệ thống điện sets aria-pressed=true",
+      "pass": true
+    },
+    {
+      "name": "Filter click Hệ thống điện displays exact card count (5)",
+      "pass": true
+    },
+    {
+      "name": "Filter click Cơ điện M&E updates URL ?cat=me",
+      "pass": true
+    },
+    {
+      "name": "Filter click Cơ điện M&E sets aria-pressed=true",
+      "pass": true
+    },
+    {
+      "name": "Filter click Cơ điện M&E displays exact card count (14)",
+      "pass": true
+    },
+    {
+      "name": "Reset filter to Tất cả restores 26 cards",
+      "pass": true
+    },
+    {
+      "name": "Direct URL navigation /projects?cat=substation filters 2 cards",
+      "pass": true
+    },
+    {
+      "name": "Direct URL navigation ?cat=substation sets aria-pressed=true",
+      "pass": true
+    },
+    {
+      "name": "Unique <title> matching \"${name} | BT DECOM\": thi-cong-xay-lap-hang-muc-chieu-sang-1",
+      "pass": true
+    },
+    {
+      "name": "Section 01 does not repeat hero image: thi-cong-xay-lap-hang-muc-chieu-sang-1",
+      "pass": true
+    },
+    {
+      "name": "Related projects block has 3 cards: thi-cong-xay-lap-hang-muc-chieu-sang-1",
+      "pass": true
+    },
+    {
+      "name": "Adjacent navigation links (prev/next) present: thi-cong-xay-lap-hang-muc-chieu-sang-1",
+      "pass": true
+    },
+    {
+      "name": "Unique <title> matching \"${name} | BT DECOM\": he-thong-dien-du-an-t1",
+      "pass": true
+    },
+    {
+      "name": "Section 01 does not repeat hero image: he-thong-dien-du-an-t1",
+      "pass": true
+    },
+    {
+      "name": "Related projects block has 3 cards: he-thong-dien-du-an-t1",
+      "pass": true
+    },
+    {
+      "name": "Adjacent navigation links (prev/next) present: he-thong-dien-du-an-t1",
+      "pass": true
+    },
+    {
+      "name": "Unique <title> matching \"${name} | BT DECOM\": thi-cong-cap-ngam-35kv-yen-vien",
+      "pass": true
+    },
+    {
+      "name": "Section 01 does not repeat hero image: thi-cong-cap-ngam-35kv-yen-vien",
+      "pass": true
+    },
+    {
+      "name": "Related projects block has 3 cards: thi-cong-cap-ngam-35kv-yen-vien",
+      "pass": true
+    },
+    {
+      "name": "Adjacent navigation links (prev/next) present: thi-cong-cap-ngam-35kv-yen-vien",
+      "pass": true
+    },
+    {
+      "name": "Detail page titles are distinct and unique",
+      "pass": true
+    },
+    {
+      "name": "No runtime exceptions during projects audit",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "width360": {
+    "scrollWidth": 352,
+    "viewportWidth": 360,
+    "firstCardTop": 438,
+    "totalCards": 26,
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "width390": {
+    "scrollWidth": 382,
+    "viewportWidth": 390,
+    "firstCardTop": 438,
+    "totalCards": 26,
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "width768": {
+    "scrollWidth": 760,
+    "viewportWidth": 768,
+    "firstCardTop": 481,
+    "totalCards": 26,
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "width1024": {
+    "scrollWidth": 1016,
+    "viewportWidth": 1024,
+    "firstCardTop": 513,
+    "totalCards": 26,
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "width1440": {
+    "scrollWidth": 1432,
+    "viewportWidth": 1440,
+    "firstCardTop": 513,
+    "totalCards": 26,
+    "hasHeader": true,
+    "hasFooter": true
+  },
+  "imageBudget": {
+    "totalBytes": 1429621,
+    "totalMB": "1.36",
+    "imageCount": 27,
+    "images": [
+      {
+        "name": "http://localhost:9400/images/bt-logo.png",
+        "size": 146253
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-1/1-card.webp",
+        "size": 109078
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-2/image-copy-card.webp",
+        "size": 45764
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-3/image-copy-2-card.webp",
+        "size": 19894
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-va-lap-dat-thiet-bi-dien-chong-set-4/image-copy-2-card.webp",
+        "size": 34952
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-tuoc-5/image-copy-2-card.webp",
+        "size": 31190
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-lap-dat-he-thong-chieu-sang-tren-cau-va-he-thong-chieu-sang-kien-truc-7/1-card.webp",
+        "size": 51704
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-xay-lap-tram-bien-ap-750-kva-may-phat-dien-du-phong-100-kva-va-tuyen-c-6/1-card.webp",
+        "size": 45162
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thi-cong-cap-ngam-35kv-yen-vien/image-card.webp",
+        "size": 67408
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-ngam-24kv-thanh-pho-giao-luu/1-card.webp",
+        "size": 52006
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/thiet-bi-dien-tt-quan-ly-cnc-hoa-lac/image-card.webp",
+        "size": 76428
+      },
+      {
+        "name": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+        "size": 106680
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cai-tao-doanh-trai-bach-mai/image-card.webp",
+        "size": 6704
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-thoat-nuoc-tt-thuong-mai-hhpd/image-copy-card.webp",
+        "size": 83818
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-nguon-trung-the-chieu-sang-khu-phan-mem-hoa-lac/image-copy-card.webp",
+        "size": 43556
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/he-thong-may-nen-khi-tt-thuong-mai-hhpd/image-card.webp",
+        "size": 11780
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cai-tao-van-phong-cnc-hoa-lac/image-card.webp",
+        "size": 36578
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-nguon-trung-the-khu-phan-mem-gd2/1-card.webp",
+        "size": 30198
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/he-thong-dien-nha-ct12-cnc-hoa-lac/image-card.webp",
+        "size": 63496
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-thoat-nuoc-truong-koala-house/image-copy-card.webp",
+        "size": 68760
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cung-cap-che-pham-enchoice-thanh-hoa/image-copy-card.webp",
+        "size": 31386
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-thoat-nuoc-nha-cong-vu-tong-cuc-2/image-copy-card.webp",
+        "size": 75314
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/he-thong-dien-nha-cong-vu-tong-cuc-2/image-card.webp",
+        "size": 41188
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/dien-nuoc-nha-xuong-a-chau/image-copy-card.webp",
+        "size": 25302
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/dien-nuoc-phu-tro-du-an-t1/image-card.webp",
+        "size": 34236
+      },
+      {
+        "name": "http://localhost:9400/images/projects-web/cap-thoat-nuoc-trong-nha-du-an-t1/image-card.webp",
+        "size": 9068
+      },
+      {
+        "name": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800&q=80",
+        "size": 81718
+      }
+    ]
+  },
+  "categoryChips": [
+    {
+      "text": "Tất cả 26",
+      "ariaPressed": "true"
+    },
+    {
+      "text": "Chiếu sáng 5",
+      "ariaPressed": "false"
+    },
+    {
+      "text": "Trạm biến áp & lưới điện 2",
+      "ariaPressed": "false"
+    },
+    {
+      "text": "Hệ thống điện 5",
+      "ariaPressed": "false"
+    },
+    {
+      "text": "Cơ điện M&E 14",
+      "ariaPressed": "false"
+    }
+  ],
+  "detail_thi-cong-xay-lap-hang-muc-chieu-sang-1": {
+    "title": "Chiếu sáng kiến trúc cầu vượt Chùa Bộc - Thái Hà | BT DECOM",
+    "heroSrc": "/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-1/1-full.webp",
+    "firstSectionSrc": "/images/projects-web/thi-cong-xay-lap-hang-muc-chieu-sang-1/2-full.webp",
+    "repeatsHero": false,
+    "relatedCardCount": 3,
+    "hasPrev": false,
+    "hasNext": true
+  },
+  "detail_he-thong-dien-du-an-t1": {
+    "title": "Hệ thống điện - Dự án T1 | BT DECOM",
+    "heroSrc": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80",
+    "firstSectionSrc": "",
+    "repeatsHero": false,
+    "relatedCardCount": 3,
+    "hasPrev": true,
+    "hasNext": true
+  },
+  "detail_thi-cong-cap-ngam-35kv-yen-vien": {
+    "title": "Tuyến cáp ngầm trung thế 35KV và Trạm biến áp nhà máy Yên Viên | BT DECOM",
+    "heroSrc": "/images/projects-web/thi-cong-cap-ngam-35kv-yen-vien/image-full.webp",
+    "firstSectionSrc": "",
+    "repeatsHero": false,
+    "relatedCardCount": 3,
+    "hasPrev": true,
+    "hasNext": true
+  }
+}

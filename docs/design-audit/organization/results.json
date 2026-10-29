@@ -1,0 +1,285 @@
+{
+  "phase": "organization",
+  "staticMode": true,
+  "checks": [
+    {
+      "name": "No horizontal overflow 360",
+      "pass": true
+    },
+    {
+      "name": "Five connected units 360",
+      "pass": true
+    },
+    {
+      "name": "Three construction teams 360",
+      "pass": true
+    },
+    {
+      "name": "Director stem centered 360",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 390",
+      "pass": true
+    },
+    {
+      "name": "Five connected units 390",
+      "pass": true
+    },
+    {
+      "name": "Three construction teams 390",
+      "pass": true
+    },
+    {
+      "name": "Director stem centered 390",
+      "pass": true
+    },
+    {
+      "name": "Enlarged text fits mobile",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 768",
+      "pass": true
+    },
+    {
+      "name": "Five connected units 768",
+      "pass": true
+    },
+    {
+      "name": "Three construction teams 768",
+      "pass": true
+    },
+    {
+      "name": "Director stem centered 768",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "Five connected units 1024",
+      "pass": true
+    },
+    {
+      "name": "Three construction teams 1024",
+      "pass": true
+    },
+    {
+      "name": "Director stem centered 1024",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "Five connected units 1440",
+      "pass": true
+    },
+    {
+      "name": "Three construction teams 1440",
+      "pass": true
+    },
+    {
+      "name": "Director stem centered 1440",
+      "pass": true
+    },
+    {
+      "name": "No runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "width360": {
+    "width": 360,
+    "scrollWidth": 352,
+    "stemCenter": 176,
+    "parentCenter": 176,
+    "cards": [
+      {
+        "x": 49,
+        "y": 719.59375,
+        "width": 262,
+        "height": 210.78125
+      },
+      {
+        "x": 49,
+        "y": 930.375,
+        "width": 262,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 1117.15625,
+        "width": 262,
+        "height": 210.78125
+      },
+      {
+        "x": 49,
+        "y": 1327.9375,
+        "width": 262,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 1514.71875,
+        "width": 262,
+        "height": 278.28125
+      }
+    ]
+  },
+  "width390": {
+    "width": 390,
+    "scrollWidth": 382,
+    "stemCenter": 191,
+    "parentCenter": 191,
+    "cards": [
+      {
+        "x": 49,
+        "y": 720.15625,
+        "width": 292,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 906.9375,
+        "width": 292,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 1093.71875,
+        "width": 292,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 1280.5,
+        "width": 292,
+        "height": 186.78125
+      },
+      {
+        "x": 49,
+        "y": 1467.28125,
+        "width": 292,
+        "height": 278.28125
+      }
+    ]
+  },
+  "width768": {
+    "width": 768,
+    "scrollWidth": 760,
+    "stemCenter": 380,
+    "parentCenter": 380,
+    "cards": [
+      {
+        "x": 65,
+        "y": 741.96875,
+        "width": 638,
+        "height": 164.390625
+      },
+      {
+        "x": 65,
+        "y": 906.359375,
+        "width": 638,
+        "height": 164.390625
+      },
+      {
+        "x": 65,
+        "y": 1070.75,
+        "width": 638,
+        "height": 164.390625
+      },
+      {
+        "x": 65,
+        "y": 1235.140625,
+        "width": 638,
+        "height": 164.390625
+      },
+      {
+        "x": 65,
+        "y": 1399.53125,
+        "width": 638,
+        "height": 255.890625
+      }
+    ]
+  },
+  "width1024": {
+    "width": 1024,
+    "scrollWidth": 1016,
+    "stemCenter": 508,
+    "parentCenter": 508,
+    "cards": [
+      {
+        "x": 49,
+        "y": 759.625,
+        "width": 183.59375,
+        "height": 300.671875
+      },
+      {
+        "x": 232.59375,
+        "y": 759.625,
+        "width": 183.59375,
+        "height": 300.671875
+      },
+      {
+        "x": 416.1875,
+        "y": 759.625,
+        "width": 183.609375,
+        "height": 300.671875
+      },
+      {
+        "x": 599.796875,
+        "y": 759.625,
+        "width": 183.59375,
+        "height": 300.671875
+      },
+      {
+        "x": 783.390625,
+        "y": 759.625,
+        "width": 183.609375,
+        "height": 300.671875
+      }
+    ]
+  },
+  "width1440": {
+    "width": 1440,
+    "scrollWidth": 1432,
+    "stemCenter": 716,
+    "parentCenter": 716,
+    "cards": [
+      {
+        "x": 101,
+        "y": 773.25,
+        "width": 246,
+        "height": 278.28125
+      },
+      {
+        "x": 347,
+        "y": 773.25,
+        "width": 246,
+        "height": 278.28125
+      },
+      {
+        "x": 593,
+        "y": 773.25,
+        "width": 246,
+        "height": 278.28125
+      },
+      {
+        "x": 839,
+        "y": 773.25,
+        "width": 246,
+        "height": 278.28125
+      },
+      {
+        "x": 1085,
+        "y": 773.25,
+        "width": 246,
+        "height": 278.28125
+      }
+    ]
+  }
+}

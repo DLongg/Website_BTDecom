@@ -1,0 +1,333 @@
+{
+  "phase": "about",
+  "staticMode": true,
+  "checks": [
+    {
+      "name": "No horizontal overflow 360",
+      "pass": true
+    },
+    {
+      "name": "One page heading 360",
+      "pass": true
+    },
+    {
+      "name": "Overview before timeline 360",
+      "pass": true
+    },
+    {
+      "name": "No broken images 360",
+      "pass": true
+    },
+    {
+      "name": "No corrupted text 360",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 390",
+      "pass": true
+    },
+    {
+      "name": "One page heading 390",
+      "pass": true
+    },
+    {
+      "name": "Overview before timeline 390",
+      "pass": true
+    },
+    {
+      "name": "No broken images 390",
+      "pass": true
+    },
+    {
+      "name": "No corrupted text 390",
+      "pass": true
+    },
+    {
+      "name": "Accordion initially collapsed",
+      "pass": true
+    },
+    {
+      "name": "Accordion opens",
+      "pass": true
+    },
+    {
+      "name": "Open accordion fits mobile",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 768",
+      "pass": true
+    },
+    {
+      "name": "One page heading 768",
+      "pass": true
+    },
+    {
+      "name": "Overview before timeline 768",
+      "pass": true
+    },
+    {
+      "name": "No broken images 768",
+      "pass": true
+    },
+    {
+      "name": "No corrupted text 768",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1024",
+      "pass": true
+    },
+    {
+      "name": "One page heading 1024",
+      "pass": true
+    },
+    {
+      "name": "Overview before timeline 1024",
+      "pass": true
+    },
+    {
+      "name": "No broken images 1024",
+      "pass": true
+    },
+    {
+      "name": "No corrupted text 1024",
+      "pass": true
+    },
+    {
+      "name": "No horizontal overflow 1440",
+      "pass": true
+    },
+    {
+      "name": "One page heading 1440",
+      "pass": true
+    },
+    {
+      "name": "Overview before timeline 1440",
+      "pass": true
+    },
+    {
+      "name": "No broken images 1440",
+      "pass": true
+    },
+    {
+      "name": "No corrupted text 1440",
+      "pass": true
+    },
+    {
+      "name": "No runtime errors",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "width360": {
+    "width": 360,
+    "scrollWidth": 352,
+    "height": 9456,
+    "sections": [
+      {
+        "heading": "Về chúng tôi",
+        "height": 631
+      },
+      {
+        "height": 328
+      },
+      {
+        "heading": "Nền tảng cho những công trình bền vững",
+        "height": 1204
+      },
+      {
+        "heading": "Thông điệp từ ban lãnh đạo",
+        "height": 387
+      },
+      {
+        "heading": "Hành trình phát triển",
+        "height": 1182
+      },
+      {
+        "heading": "Năng lực nhân sự",
+        "height": 1042
+      },
+      {
+        "heading": "Năng lực máy móc, thiết bị",
+        "height": 2551
+      },
+      {
+        "heading": "Tổ chức để phối hợp hiệu quả",
+        "height": 785
+      },
+      {
+        "heading": "Cùng trao đổi về công trình của bạn",
+        "height": 424
+      }
+    ]
+  },
+  "width390": {
+    "width": 390,
+    "scrollWidth": 382,
+    "height": 10038,
+    "sections": [
+      {
+        "heading": "Về chúng tôi",
+        "height": 631
+      },
+      {
+        "height": 288
+      },
+      {
+        "heading": "Nền tảng cho những công trình bền vững",
+        "height": 1201
+      },
+      {
+        "heading": "Thông điệp từ ban lãnh đạo",
+        "height": 358
+      },
+      {
+        "heading": "Hành trình phát triển",
+        "height": 1110
+      },
+      {
+        "heading": "Năng lực nhân sự",
+        "height": 1729
+      },
+      {
+        "heading": "Năng lực máy móc, thiết bị",
+        "height": 2613
+      },
+      {
+        "heading": "Tổ chức để phối hợp hiệu quả",
+        "height": 785
+      },
+      {
+        "heading": "Cùng trao đổi về công trình của bạn",
+        "height": 424
+      }
+    ]
+  },
+  "width768": {
+    "width": 768,
+    "scrollWidth": 760,
+    "height": 7650,
+    "sections": [
+      {
+        "heading": "Về chúng tôi",
+        "height": 573
+      },
+      {
+        "height": 390
+      },
+      {
+        "heading": "Nền tảng cho những công trình bền vững",
+        "height": 1249
+      },
+      {
+        "heading": "Thông điệp từ ban lãnh đạo",
+        "height": 366
+      },
+      {
+        "heading": "Hành trình phát triển",
+        "height": 945
+      },
+      {
+        "heading": "Năng lực nhân sự",
+        "height": 810
+      },
+      {
+        "heading": "Năng lực máy móc, thiết bị",
+        "height": 1581
+      },
+      {
+        "heading": "Tổ chức để phối hợp hiệu quả",
+        "height": 840
+      },
+      {
+        "heading": "Cùng trao đổi về công trình của bạn",
+        "height": 431
+      }
+    ]
+  },
+  "width1024": {
+    "width": 1024,
+    "scrollWidth": 1016,
+    "height": 5957,
+    "sections": [
+      {
+        "heading": "Về chúng tôi",
+        "height": 636
+      },
+      {
+        "height": 218
+      },
+      {
+        "heading": "Nền tảng cho những công trình bền vững",
+        "height": 788
+      },
+      {
+        "heading": "Thông điệp từ ban lãnh đạo",
+        "height": 268
+      },
+      {
+        "heading": "Hành trình phát triển",
+        "height": 605
+      },
+      {
+        "heading": "Năng lực nhân sự",
+        "height": 776
+      },
+      {
+        "heading": "Năng lực máy móc, thiết bị",
+        "height": 1090
+      },
+      {
+        "heading": "Tổ chức để phối hợp hiệu quả",
+        "height": 842
+      },
+      {
+        "heading": "Cùng trao đổi về công trình của bạn",
+        "height": 293
+      }
+    ]
+  },
+  "width1440": {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "height": 6177,
+    "sections": [
+      {
+        "heading": "Về chúng tôi",
+        "height": 636
+      },
+      {
+        "height": 195
+      },
+      {
+        "heading": "Nền tảng cho những công trình bền vững",
+        "height": 920
+      },
+      {
+        "heading": "Thông điệp từ ban lãnh đạo",
+        "height": 229
+      },
+      {
+        "heading": "Hành trình phát triển",
+        "height": 547
+      },
+      {
+        "heading": "Năng lực nhân sự",
+        "height": 790
+      },
+      {
+        "heading": "Năng lực máy móc, thiết bị",
+        "height": 1210
+      },
+      {
+        "heading": "Tổ chức để phối hợp hiệu quả",
+        "height": 856
+      },
+      {
+        "heading": "Cùng trao đổi về công trình của bạn",
+        "height": 353
+      }
+    ]
+  }
+}
