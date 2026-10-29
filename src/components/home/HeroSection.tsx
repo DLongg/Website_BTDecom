@@ -52,7 +52,7 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
 
       {/* Content */}
       <div className="relative z-20 mx-auto w-full max-w-[1350px] px-4 md:px-6 pt-32 sm:pt-32 pb-12 sm:pb-20 h-full flex flex-col justify-end sm:justify-center">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pb-32 sm:pb-0 mt-16 sm:mt-0">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center lg:items-end pb-32 sm:pb-0 mt-16 sm:mt-0">
           {/* Left - Main Content */}
           <div className="lg:col-span-7 text-left">
             <motion.div
@@ -94,43 +94,43 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
           </div>
 
           {/* Right - Hero Slider Widget */}
-          <div className="lg:col-span-5 relative z-30 hidden lg:flex justify-end overflow-visible">
+          <div className="lg:col-span-5 relative z-30 hidden lg:flex justify-end overflow-visible lg:self-end lg:translate-y-12">
             {slides.length > 0 ? (
               <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="w-full max-w-[420px] relative mt-10 lg:mt-0 lg:mr-12 xl:mr-0"
+                className="w-full max-w-[320px] xl:max-w-[330px] relative mt-10 lg:mt-0 lg:mr-6 xl:mr-0"
               >
                 {/* External Nav Controls */}
                 <button
-                  className="absolute -left-12 lg:-left-20 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-0"
+                  className="absolute -left-10 lg:-left-12 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-0"
                   onClick={(e) => {
                     e.stopPropagation();
                     prevSlide();
                   }}
                   aria-label="Trang trước"
                 >
-                  <ChevronLeft size={60} strokeWidth={1} />
+                  <ChevronLeft size={38} strokeWidth={1.5} />
                 </button>
                 <button
-                  className="absolute -right-12 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-0"
+                  className="absolute -right-10 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors z-0"
                   onClick={(e) => {
                     e.stopPropagation();
                     nextSlide();
                   }}
                   aria-label="Trang sau"
                 >
-                  <ChevronRight size={60} strokeWidth={1} />
+                  <ChevronRight size={38} strokeWidth={1.5} />
                 </button>
 
                 {/* The Slider Container */}
-                <div className="relative isolate block p-6 rounded-2xl bg-[#1c1c1c] shadow-2xl w-full transition-all duration-300 group/slider">
+                <div className="relative isolate block p-4 rounded-xl bg-[#1c1c1c] shadow-2xl w-full transition-all duration-300 group/slider">
                   {/* The dark left tab */}
-                  <div className="absolute right-full top-1/2 -translate-y-1/2 w-3 bg-[#2a2a2a] rounded-l-xl h-[85%] transition-all duration-300" />
+                  <div className="absolute right-full top-1/2 -translate-y-1/2 w-2.5 bg-[#2a2a2a] rounded-l-lg h-[85%] transition-all duration-300" />
 
                   {/* Slides */}
-                  <div className="relative overflow-hidden w-full min-h-[300px]">
+                  <div className="relative overflow-hidden w-full min-h-[225px]">
                     <AnimatePresence mode="wait">
                       <motion.article
                         key={slides[currentSlide].id}
@@ -141,7 +141,7 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                         className="absolute inset-0 cursor-pointer flex flex-col group/slide"
                         onClick={() => window.location.href = `/projects/${slides[currentSlide].slug}`}
                       >
-                        <figure className="relative flex items-center justify-center w-full overflow-hidden rounded-xl aspect-[16/9] mb-6">
+                        <figure className="relative flex items-center justify-center w-full overflow-hidden rounded-lg aspect-[16/9] mb-3.5">
                           <img
                             className="h-full w-full object-cover object-center transition-transform duration-1000 group-hover/slide:scale-105"
                             src={slides[currentSlide].image}
@@ -150,7 +150,7 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                         </figure>
 
                         <div className="relative flex-1 flex flex-col">
-                          <h3 className="text-white font-medium text-xl md:text-[22px] leading-snug line-clamp-3">
+                          <h3 className="text-white font-medium text-[15px] sm:text-base leading-snug line-clamp-2">
                             {slides[currentSlide].name}
                           </h3>
                         </div>
@@ -159,9 +159,9 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                   </div>
 
                   {/* Pager & Circular Link Button Container */}
-                  <div className="mt-4 flex items-end justify-between relative z-10">
+                  <div className="mt-3 flex items-center justify-between relative z-10">
                     {/* Pager */}
-                    <div className="flex items-center gap-2 pb-3 pl-1">
+                    <div className="flex items-center gap-1.5 pl-0.5">
                       {slides.map((_, index) => (
                         <button
                           type="button"
@@ -170,8 +170,8 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                           key={index}
                           onClick={() => setCurrentSlide(index)}
                           className={cn(
-                            "relative block overflow-hidden rounded-full h-2 cursor-pointer transition-all duration-500",
-                            index === currentSlide ? "w-[72px] bg-[#333333]" : "w-2 bg-[#333333] hover:bg-[#444444]"
+                            "relative block overflow-hidden rounded-full h-1.5 cursor-pointer transition-all duration-500",
+                            index === currentSlide ? "w-12 bg-[#333333]" : "w-1.5 bg-[#333333] hover:bg-[#444444]"
                           )}
                         >
                           {index === currentSlide && (
@@ -189,11 +189,11 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                     {/* Circular Link Button */}
                     <Link
                       href={`/projects/${slides[currentSlide].slug}`}
-                      className="flex items-center justify-center w-[60px] h-[60px] rounded-full bg-[#0a2610] text-[#4ade80] transition-all duration-300 hover:bg-[#4ade80] hover:text-[#0a2610]"
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-[#0a2610] text-[#4ade80] transition-all duration-300 hover:bg-[#4ade80] hover:text-[#0a2610] shrink-0"
                       onClick={(e) => e.stopPropagation()}
                       aria-label="Đọc thêm"
                     >
-                      <ArrowRight size={28} className="-rotate-45" />
+                      <ArrowRight size={18} className="-rotate-45" />
                     </Link>
                   </div>
                 </div>

@@ -14,9 +14,8 @@ export function AboutSection() {
       <div className="site-container grid gap-10 items-center lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         <figure className="relative overflow-hidden rounded-xl">
           <div className="relative aspect-[4/3] lg:aspect-[4/5]">
-            <Image src="/images/home/thi-cong-co-dien.webp" alt="Lắp đặt đường ống cơ điện bên trong công trình đang thi công" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+            <Image src="/images/home/thi-cong-co-dien.jpg" alt="Lắp đặt đường ống cơ điện bên trong công trình đang thi công" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
           </div>
-          <figcaption className="absolute inset-x-0 bottom-0 bg-brand-dark/90 px-5 py-4 text-white text-sm">Hệ thống cơ điện trong quá trình thi công</figcaption>
         </figure>
         <div>
           <p className="text-brand-primary font-medium text-sm mb-4">BT DECOM · Thành lập năm 2012</p>
