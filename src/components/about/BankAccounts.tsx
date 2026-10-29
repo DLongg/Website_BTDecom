@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { bankAccounts } from "@/data/about";
 import { CopyButton } from "@/components/ui/CopyButton";
 import { Landmark, CreditCard, ShieldCheck } from "lucide-react";
@@ -38,9 +39,11 @@ export function BankAccounts() {
               {/* Bank Logo & Name */}
               <div>
                 <div className="h-12 mb-5 flex items-center justify-start">
-                  <img 
+                  <Image 
                     src={acc.logo} 
                     alt={`Logo ${acc.bank}`} 
+                    width={170}
+                    height={36}
                     className="h-9 w-auto max-w-[170px] object-contain"
                   />
                 </div>

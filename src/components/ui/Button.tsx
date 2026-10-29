@@ -37,7 +37,8 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild: _asChild = false, ...props }, ref) => {
+    void _asChild;
     // We don't have radix UI installed yet, so let's fallback to standard button if asChild is not used, 
     // or just require radix if needed. I'll stick to a standard button for simplicity without radix slot 
     // unless strictly needed. Actually, let me remove radix dependency to keep it simple.

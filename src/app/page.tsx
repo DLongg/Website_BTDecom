@@ -17,6 +17,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <span id="main-content" tabIndex={-1} className="sr-only">Nội dung chính</span>
       <HeroSection projects={projects.slice(0, 5)} />
       <StatsSection projectCount={projects.length} />
       <ServicesSection />

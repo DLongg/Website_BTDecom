@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Project } from "@/types";
@@ -142,10 +143,12 @@ export function HeroSection({ projects = [] }: HeroSectionProps) {
                         onClick={() => window.location.href = `/projects/${slides[currentSlide].slug}`}
                       >
                         <figure className="relative flex items-center justify-center w-full overflow-hidden rounded-lg aspect-[16/9] mb-3.5">
-                          <img
-                            className="h-full w-full object-cover object-center transition-transform duration-1000 group-hover/slide:scale-105"
+                          <Image
+                            className="object-cover object-center transition-transform duration-1000 group-hover/slide:scale-105"
                             src={slides[currentSlide].image}
                             alt={slides[currentSlide].name}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 400px"
                           />
                         </figure>
 

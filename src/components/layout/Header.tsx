@@ -75,7 +75,6 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
   const active = (href: string) => href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 
   return (
-    <>
     <header className={cn("fixed inset-x-0 top-0 z-50 border-b transition-colors duration-200", transparent ? "border-transparent bg-transparent text-white" : "border-gray-200 bg-white text-brand-dark")}>
       <div className="site-container flex h-18 items-center justify-between gap-4 lg:h-22">
         <Link href="/" onClick={() => setOpen(false)} aria-label="BT DECOM — Trang chủ" className="flex min-h-11 shrink-0 items-center gap-2.5 sm:gap-3">
@@ -111,7 +110,5 @@ function HeaderNavigation({ pathname }: { pathname: string }) {
         </div>
       )}
     </header>
-    <span id="main-content" tabIndex={-1} className="sr-only">Nội dung chính</span>
-    </>
   );
 }
