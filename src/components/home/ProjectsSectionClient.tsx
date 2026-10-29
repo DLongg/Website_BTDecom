@@ -8,31 +8,110 @@ export function ProjectsSectionClient({ projects }: { projects: FeaturedProject[
   return (
     <section className="home-section bg-brand-light" aria-labelledby="projects-heading">
       <div className="site-container">
-        <div className="flex flex-col gap-5 justify-between md:flex-row md:items-end mb-8 md:mb-10">
-          <div>
-            <h2 id="projects-heading" className="home-heading">Công trình tiêu biểu</h2>
-            <p className="mt-4 max-w-xl leading-relaxed text-gray-600">Một số hạng mục chiếu sáng, cấp nguồn và cơ điện trong hồ sơ công trình của BT DECOM.</p>
-          </div>
-          <Link href="/projects" className="text-link self-start md:self-auto shrink-0">Xem tất cả dự án <ArrowRight size={18} aria-hidden="true" /></Link>
+        <div className="mb-8 md:mb-10 flex items-center justify-between gap-4">
+          <h2 id="projects-heading" className="home-heading">
+            Công trình tiêu biểu
+          </h2>
+          <Link
+            href="/projects"
+            aria-label="Xem tất cả dự án"
+            className="group inline-flex items-center justify-center h-10 sm:h-11 rounded-full bg-white border border-gray-200/90 text-brand-dark hover:border-brand-primary hover:bg-brand-primary hover:text-white shadow-xs hover:shadow-md hover:shadow-brand-primary/20 transition-all duration-300 ease-out shrink-0 px-2.5 sm:px-3 hover:px-4 active:scale-95"
+          >
+            <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ease-out group-hover:max-w-28 group-hover:opacity-100 group-hover:mr-2">
+              Tất cả dự án
+            </span>
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-0.5 shrink-0"
+            />
+          </Link>
         </div>
-        <div className="grid gap-8 lg:grid-cols-[1.25fr_1fr] lg:gap-10">
-          {projects.map((project, index) => (
-            <article key={project.slug} className={index === 0 ? "lg:row-span-2" : ""}>
-              <Link href={`/projects/${project.slug}`} className={`group grid gap-4 ${index === 0 ? "" : "sm:grid-cols-[0.85fr_1fr] sm:items-center"}`}>
-                <div className={`relative overflow-hidden rounded-lg ${index === 0 ? "aspect-[4/3] lg:aspect-[5/4]" : "aspect-[16/10] sm:aspect-[4/3]"}`}>
-                  <Image src={project.image} alt={project.imageAlt} fill sizes={index === 0 ? "(min-width: 1024px) 52vw, 100vw" : "(min-width: 1024px) 24vw, (min-width: 640px) 40vw, 100vw"} className="object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+        {(() => {
+          const [leadProject, ...supportingProjects] = projects;
+          return (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-stretch">
+              {/* Lead Project - Left Column (7 cols) */}
+              <article className="lg:col-span-7 flex flex-col">
+                <Link
+                  href={`/projects/${leadProject.slug}`}
+                  className="group flex flex-col h-full bg-white rounded-2xl p-5 sm:p-6 border border-gray-200/80 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-dark/5 transition-all duration-300"
+                >
+                  <div className="relative overflow-hidden rounded-xl aspect-[16/9] bg-gray-100">
+                    <Image
+                      src={leadProject.image}
+                      alt={leadProject.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 55vw, 100vw"
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                      priority
+                    />
+                  </div>
+                  <div className="pt-5 flex flex-col flex-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs sm:text-sm font-semibold text-brand-primary">
+                        {leadProject.categoryLabel}
+                      </span>
+                      <span className="text-gray-300">•</span>
+                      <span className="text-xs text-gray-500">{leadProject.location}</span>
+                    </div>
+                    <h3 className="mt-2 font-heading text-xl sm:text-2xl font-bold tracking-tight text-brand-dark group-hover:text-brand-primary transition-colors leading-snug">
+                      {leadProject.displayName}
+                    </h3>
+                    {leadProject.shortDescription && (
+                      <p className="mt-2.5 text-sm sm:text-base text-gray-600 leading-relaxed max-w-xl line-clamp-2">
+                        {leadProject.shortDescription}
+                      </p>
+                    )}
+                    <div className="mt-auto pt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-primary group-hover:text-brand-gold-dark transition-colors">
+                      <span>Xem công trình</span>
+                      <ArrowUpRight size={16} aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  </div>
+                </Link>
+              </article>
+
+              {/* Supporting Projects - Right Column (5 cols) */}
+              {supportingProjects.length > 0 && (
+                <div className="lg:col-span-5 flex flex-col justify-between gap-3 sm:gap-3.5 lg:gap-3 xl:gap-3.5">
+                  {supportingProjects.map((project) => (
+                    <article key={project.slug} className="flex-1 flex flex-col">
+                      <Link
+                        href={`/projects/${project.slug}`}
+                        className="group relative flex flex-row gap-3.5 sm:gap-4 h-full bg-white rounded-2xl p-3 sm:p-3.5 lg:p-3 xl:p-3.5 border border-gray-200/80 hover:border-brand-primary/40 hover:shadow-lg hover:shadow-brand-dark/5 transition-all duration-300 items-center"
+                      >
+                        <div className="relative shrink-0 overflow-hidden rounded-xl w-24 h-24 sm:w-28 sm:h-24 md:w-32 md:h-24 lg:w-24 lg:h-20 xl:w-28 xl:h-24 bg-gray-100">
+                          <Image
+                            src={project.image}
+                            alt={project.imageAlt}
+                            fill
+                            sizes="(min-width: 1024px) 15vw, (min-width: 640px) 25vw, 100px"
+                            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
+                          />
+                        </div>
+                        <div className="flex flex-col flex-1 min-w-0 pr-6">
+                          <div className="flex items-center gap-1.5 flex-wrap">
+                            <span className="text-xs font-semibold text-brand-primary">
+                              {project.categoryLabel}
+                            </span>
+                            <span className="text-gray-300">•</span>
+                            <span className="text-xs text-gray-500 line-clamp-1">{project.location}</span>
+                          </div>
+                          <h3 className="mt-1 font-heading text-sm sm:text-base font-bold tracking-tight text-brand-dark group-hover:text-brand-primary transition-colors line-clamp-2 leading-snug">
+                            {project.displayName}
+                          </h3>
+                        </div>
+                        <div className="absolute top-3 right-3 sm:top-3.5 sm:right-3.5 text-gray-400 group-hover:text-brand-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200">
+                          <ArrowUpRight size={17} aria-hidden="true" />
+                        </div>
+                      </Link>
+                    </article>
+                  ))}
                 </div>
-                <div>
-                  <p className="text-sm text-brand-primary font-medium">{project.categoryLabel}</p>
-                  <h3 className={`mt-2 font-heading font-semibold tracking-tight text-brand-dark group-hover:text-brand-primary transition-colors ${index === 0 ? "text-xl md:text-2xl" : "text-lg md:text-xl"}`}>{project.displayName}</h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-relaxed">{project.location}</p>
-                  {index === 0 && <p className="mt-3 text-gray-600 leading-relaxed max-w-xl">{project.shortDescription}</p>}
-                  <span className="mt-3 inline-flex min-h-11 items-center gap-2 text-brand-primary text-sm font-semibold">Xem công trình <ArrowUpRight size={16} aria-hidden="true" /></span>
-                </div>
-              </Link>
-            </article>
-          ))}
-        </div>
+              )}
+            </div>
+          );
+        })()}
       </div>
     </section>
   );

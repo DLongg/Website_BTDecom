@@ -26,23 +26,29 @@ export function NewsSection() {
   return (
     <section aria-labelledby="news-heading" className="py-16 md:py-24 lg:py-32 bg-brand-light" ref={ref}>
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-14 gap-4 md:gap-6">
-          <div>
-
-            <h2 id="news-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-brand-dark mb-3 sm:mb-4">
+        <div className="mb-8 md:mb-14">
+          <div className="flex items-center justify-between gap-4">
+            <h2 id="news-heading" className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-heading text-brand-dark">
               Tin Tức & Sự Kiện
             </h2>
-            <p className="text-gray-500 text-sm sm:text-lg max-w-xl">
-              Cập nhật xu hướng kỹ thuật mới nhất và các hoạt động nổi bật từ BT DECOM.
-            </p>
+            <Link
+              href="/news"
+              aria-label="Xem tất cả bài viết"
+              className="group inline-flex items-center justify-center h-10 sm:h-11 rounded-full bg-white border border-gray-200/90 text-brand-dark hover:border-brand-primary hover:bg-brand-primary hover:text-white shadow-xs hover:shadow-md hover:shadow-brand-primary/20 transition-all duration-300 ease-out shrink-0 px-2.5 sm:px-3 hover:px-4 active:scale-95"
+            >
+              <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ease-out group-hover:max-w-28 group-hover:opacity-100 group-hover:mr-2">
+                Tất cả bài viết
+              </span>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 shrink-0"
+              />
+            </Link>
           </div>
-          <Link
-            href="/news"
-            className="hidden md:inline-flex items-center gap-2 text-brand-gold font-semibold hover:text-brand-dark transition-colors shrink-0 group"
-          >
-            Xem tất cả bài viết
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
+          <p className="mt-2.5 sm:mt-4 text-gray-500 text-sm sm:text-lg max-w-xl">
+            Cập nhật xu hướng kỹ thuật mới nhất và các hoạt động nổi bật từ BT DECOM.
+          </p>
         </div>
 
 
@@ -94,16 +100,6 @@ export function NewsSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        <div className="mt-10 text-center md:hidden">
-          <Link
-            href="/news"
-            className="inline-flex items-center gap-2 text-brand-gold font-medium"
-          >
-            Xem tất cả bài viết
-            <ArrowRight size={20} />
-          </Link>
-        </div>
       </div>
     </section>
   );

@@ -21,6 +21,12 @@ const featured = [
     image: "/images/home/koala-house.webp",
     imageAlt: "Khuôn viên trường mầm non Koala House với sân chơi ngoài trời",
   },
+  {
+    slug: "thi-cong-xay-lap-tram-bien-ap-750-kva-may-phat-dien-du-phong-100-kva-va-tuyen-c-6",
+    displayName: "Trạm biến áp 750 KVA & cáp ngầm 24KV",
+    image: "/images/projects/thi-cong-xay-lap-tram-bien-ap-750-kva-may-phat-dien-du-phong-100-kva-va-tuyen-c-6/1.png",
+    imageAlt: "Trạm biến áp 750 KVA và tuyến cáp ngầm 24KV Khu Liên hợp Phụ nữ",
+  },
 ] as const;
 
 // Keep full project records and routes; only the homepage presentation is curated.

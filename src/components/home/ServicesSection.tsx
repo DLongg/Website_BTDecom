@@ -9,14 +9,31 @@ export function ServicesSection() {
   return (
     <section className="home-section bg-white" aria-labelledby="services-heading">
       <div className="site-container">
-        <div className="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-          <div>
-            <h2 id="services-heading" className="home-heading">Lĩnh vực hoạt động</h2>
-            <p className="mt-4 max-w-xl text-gray-600 leading-relaxed">Từ nguồn điện đến hệ thống cơ điện, BT DECOM triển khai các hạng mục kỹ thuật cho công trình dân dụng và hạ tầng.</p>
+        <div className="mb-8 md:mb-10">
+          <div className="flex items-center justify-between gap-4">
+            <h2 id="services-heading" className="home-heading">
+              Lĩnh vực hoạt động
+            </h2>
+            <Link
+              href="/services"
+              aria-label="Xem tất cả dịch vụ"
+              className="group inline-flex items-center justify-center h-10 sm:h-11 rounded-full bg-white border border-gray-200/90 text-brand-dark hover:border-brand-primary hover:bg-brand-primary hover:text-white shadow-xs hover:shadow-md hover:shadow-brand-primary/20 transition-all duration-300 ease-out shrink-0 px-2.5 sm:px-3 hover:px-4 active:scale-95"
+            >
+              <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap text-xs sm:text-sm font-semibold tracking-wide transition-all duration-300 ease-out group-hover:max-w-28 group-hover:opacity-100 group-hover:mr-2">
+                Tất cả dịch vụ
+              </span>
+              <ArrowRight
+                size={18}
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-0.5 shrink-0"
+              />
+            </Link>
           </div>
-          <Link href="/services" className="text-link self-start md:self-auto shrink-0">Tất cả dịch vụ <ArrowRight size={18} aria-hidden="true" /></Link>
+          <p className="mt-2.5 sm:mt-3 max-w-xl text-gray-600 leading-relaxed">
+            Từ nguồn điện đến hệ thống cơ điện, BT DECOM triển khai các hạng mục kỹ thuật cho công trình dân dụng và hạ tầng.
+          </p>
         </div>
-        <div className="mt-8 grid gap-x-12 md:mt-10 md:grid-cols-2">
+        <div className="grid gap-x-12 md:grid-cols-2">
           {services.slice(0, 4).map(service => {
             const Icon = icons[service.icon] || Zap;
             const summary = homepageServices[service.slug];
