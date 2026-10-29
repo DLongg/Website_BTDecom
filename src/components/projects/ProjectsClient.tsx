@@ -1,321 +1,259 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CTASection } from "@/components/home/CTASection";
-import type { Project } from "@/types";
-import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { ProjectCard } from "@/components/projects/ProjectCard";
+import type { Project, ProjectCategory, ProjectStats } from "@/types";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
-interface ProjectsClientProps {
+export interface ProjectsClientProps {
   projects: Project[];
-  projectCategories: { value: string; label: string }[];
+  projectCategories?: { value: string; label: string }[];
+  stats?: ProjectStats;
 }
 
-const highlightSectors = [
-  {
-    badge: "KHU VỰC CÔNG",
-    title: "Hệ thống quản lý văn bản điện tử",
-    desc: "Triển khai giải pháp quản lý văn bản, điều hành công việc cho cơ quan nhà nước.",
-    image: "/images/projects-cat-public.jpg",
-    filterCategory: "electrical",
-  },
-  {
-    badge: "DOANH NGHIỆP",
-    title: "Nền tảng quản trị doanh nghiệp",
-    desc: "Xây dựng nền tảng quản trị tổng thể, tích hợp quy trình và dữ liệu toàn doanh nghiệp.",
-    image: "/images/projects-cat-enterprise.jpg",
-    filterCategory: "me",
-  },
-  {
-    badge: "SẢN XUẤT",
-    title: "Giải pháp quản lý sản xuất thông minh",
-    desc: "Tối ưu quy trình sản xuất, giám sát thiết bị và nâng cao hiệu suất vận hành.",
-    image: "/images/projects-cat-manufacturing.jpg",
-    filterCategory: "substation",
-  },
-  {
-    badge: "Y TẾ",
-    title: "Hệ thống quản lý bệnh viện",
-    desc: "Số hóa quy trình khám chữa bệnh, quản lý hồ sơ và nâng cao trải nghiệm người bệnh.",
-    image: "/images/projects-cat-healthcare.jpg",
-    filterCategory: "lighting",
-  },
-];
+export function ProjectsClient({ projects, stats }: ProjectsClientProps) {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const prefersReduced = useReducedMotion();
+  const shouldReduceMotion = Boolean(prefersReduced);
 
-export function ProjectsClient({ projects, projectCategories }: ProjectsClientProps) {
-  const [activeCategory, setActiveCategory] = useState("all");
+  // Synchronize URL query parameter ?cat= via window.location.search
+  // DO NOT use useSearchParams() to ensure static export includes all 26 cards
+  useEffect(() => {
+    const syncFromLocation = () => {
+      try {
+        const search = window.location.search;
+        if (!search) {
+          setActiveCategory("all");
+          return;
+        }
+        const params = new URLSearchParams(search);
+        const cat = params.get("cat");
+        if (cat && ["lighting", "substation", "electrical", "me"].includes(cat)) {
+          setActiveCategory(cat);
+        } else {
+          setActiveCategory("all");
+        }
+      } catch {
+        setActiveCategory("all");
+      }
+    };
 
-  const filteredProjects = activeCategory === "all" 
-    ? projects 
-    : projects.filter((p) => p.category === activeCategory);
+    syncFromLocation();
+    window.addEventListener("popstate", syncFromLocation);
+    return () => window.removeEventListener("popstate", syncFromLocation);
+  }, []);
 
-  const handleSectorClick = (category: string) => {
-    setActiveCategory(category);
-    const el = document.getElementById("projects-list-anchor");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    try {
+      const currentPath = window.location.pathname;
+      if (cat === "all") {
+        window.history.replaceState(null, "", currentPath);
+      } else {
+        window.history.replaceState(null, "", `${currentPath}?cat=${encodeURIComponent(cat)}`);
+      }
+    } catch {
+      // fallback if history API is restricted
     }
   };
 
+  // Dynamic stat strip computation (pure client fallback if stats prop not passed)
+  const computedStats: ProjectStats = useMemo(() => {
+    if (stats) return stats;
+
+    const totalProjects = projects.length;
+    const categoriesSet = new Set(projects.map((p) => p.category));
+    const counts: Record<ProjectCategory, number> = {
+      lighting: 0,
+      substation: 0,
+      electrical: 0,
+      me: 0,
+    };
+    const years: number[] = [];
+
+    for (const p of projects) {
+      if (p.category in counts) {
+        counts[p.category]++;
+      }
+      const raw = p.yearNumber || p.year;
+      const match = String(raw).match(/\d{4}/);
+      if (match) {
+        years.push(parseInt(match[0], 10));
+      }
+    }
+
+    const earliestYear = years.length > 0 ? Math.min(...years) : 2013;
+    const latestYear = years.length > 0 ? Math.max(...years) : 2021;
+
+    return {
+      totalProjects,
+      totalCategories: categoriesSet.size,
+      yearRange: `${earliestYear}\u2013${latestYear}`,
+      earliestYear,
+      latestYear,
+      counts,
+    };
+  }, [stats, projects]);
+
+  // 5 Canonical filter chips with exact counts
+  const categoryChips = useMemo(() => [
+    { value: "all", label: "Tất cả", count: computedStats.totalProjects },
+    { value: "lighting", label: "Chiếu sáng", count: computedStats.counts?.lighting ?? 5 },
+    { value: "substation", label: "Trạm biến áp & lưới điện", count: computedStats.counts?.substation ?? 2 },
+    { value: "electrical", label: "Hệ thống điện", count: computedStats.counts?.electrical ?? 5 },
+    { value: "me", label: "Cơ điện M&E", count: computedStats.counts?.me ?? 14 },
+  ], [computedStats]);
+
+  const filteredProjects = activeCategory === "all"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
+
   return (
-    <div className="bg-[#F0F7F4] min-h-screen flex flex-col font-body">
+    <div className="bg-white min-h-screen flex flex-col font-body">
       <Header />
 
-      {/* ══════════════════════════════════════════════════════════════════
-          HERO & SHOWCASE SECTION (EXACT REPLICA OF IMAGE 1 WITH IMAGE 2 BGR)
-      ══════════════════════════════════════════════════════════════════ */}
-      {/* Background Image (Image 2) fixed in top half with soft blur & fade transition */}
-      <div className="fixed top-0 left-0 right-0 h-[560px] sm:h-[640px] lg:h-[720px] pointer-events-none z-0 overflow-hidden">
-        <img 
-          src="/images/projects-bg.jpg" 
-          alt="BT DECOM Modern Architecture"
-          className="w-full h-full object-cover object-[center_top] lg:object-[right_top]"
-          style={{
-            maskImage: "linear-gradient(to bottom, black 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 85%, transparent 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, black 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 85%, transparent 100%)",
-          }}
-        />
-
-        {/* Soft translucent gradient on left: ensures trees & skyline show through while text is readable */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#F0F7F4]/80 via-[#F0F7F4]/40 via-[46%] to-transparent pointer-events-none" />
-
-        {/* Multi-stop bottom fade: softly dissolves bottom foot of background into #F0F7F4 */}
-        <div className="absolute inset-x-0 bottom-0 h-56 sm:h-72 lg:h-96 bg-gradient-to-b from-transparent via-[#F0F7F4]/40 via-[35%] via-[#F0F7F4]/80 via-[70%] to-[#F0F7F4] pointer-events-none" />
-
-        {/* Bottom blur transition: softly blurs the dissolving edge into the page */}
-        <div 
-          className="absolute inset-x-0 bottom-0 h-40 sm:h-56 lg:h-72 backdrop-blur-[3px] pointer-events-none"
-          style={{
-            maskImage: "linear-gradient(to bottom, transparent 0%, black 60%, black 100%)",
-            WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 60%, black 100%)",
-          }}
-        />
-      </div>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          HERO TEXT & STATS HEADER (Over background image)
-      ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative z-10 pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10 lg:pb-12">
-        <div className="container mx-auto px-4 md:px-6">
-          
-          {/* Top text content & stats */}
-          <div className="max-w-2xl">
-            <span className="text-[#15803D] font-bold text-xs sm:text-sm tracking-wider uppercase block mb-1.5 sm:mb-2 font-heading">
-              DỰ ÁN
+      <main className="flex-grow">
+        {/* ══════════════════════════════════════════════════════════════════
+            HERO SECTION: Compact on brand-light, industry copy, stat strip
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="bg-brand-light border-b border-neutral-200/70 pt-24 pb-6 sm:pt-28 sm:pb-8 lg:pt-32 lg:pb-10">
+          <div className="site-container">
+            <span className="text-brand-primary font-bold text-xs sm:text-sm tracking-wider uppercase block mb-1.5 font-heading">
+              HỒ SƠ NĂNG LỰC
             </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[46px] font-extrabold font-heading leading-[1.12] mb-3 sm:mb-3.5 tracking-tight text-[#0F172A]">
-              Các dự án <span className="text-[#15803D]">đã thực hiện</span>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold font-heading text-brand-dark tracking-tight mb-2 sm:mb-2.5">
+              Các dự án <span className="text-brand-primary">đã thực hiện</span>
             </h1>
 
-            <p className="text-[#334155] text-xs sm:text-[14px] leading-relaxed mb-5 sm:mb-6 max-w-[540px]">
-              Khám phá những dự án tiêu biểu mà BT DECOM đã triển khai, đồng hành cùng doanh nghiệp và tổ chức trên hành trình chuyển đổi số, nâng cao hiệu quả vận hành và tạo ra giá trị bền vững.
+            <p className="text-neutral-600 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-4 sm:mb-5">
+              Tổng hợp các công trình tiêu biểu do BT DECOM trực tiếp xây lắp và thi công trong các lĩnh vực đường dây, trạm biến áp, chiếu sáng đô thị và cơ điện M&E.
             </p>
 
-            {/* 3 Stats horizontally */}
-            <div className="flex items-center gap-6 sm:gap-10 md:gap-12">
-              <div>
-                <div className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold font-heading text-[#15803D] leading-none mb-1">
-                  100+
-                </div>
-                <div className="text-[11px] sm:text-xs text-gray-600 font-medium">
-                  Dự án hoàn thành
-                </div>
-              </div>
-
-              <div className="h-8 w-[1px] bg-gray-300 hidden sm:block" />
-
-              <div>
-                <div className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold font-heading text-[#15803D] leading-none mb-1">
-                  50+
-                </div>
-                <div className="text-[11px] sm:text-xs text-gray-600 font-medium">
-                  Khách hàng tin tưởng
-                </div>
-              </div>
-
-              <div className="h-8 w-[1px] bg-gray-300 hidden sm:block" />
-
-              <div>
-                <div className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold font-heading text-[#15803D] leading-none mb-1">
-                  10+
-                </div>
-                <div className="text-[11px] sm:text-xs text-gray-600 font-medium">
-                  Lĩnh vực triển khai
-                </div>
-              </div>
+            {/* Dynamic Stat Strip: 26 hồ sơ công trình · 4 lĩnh vực · 2013–2021 */}
+            <div className="flex flex-wrap items-center gap-x-2 sm:gap-x-3 gap-y-1 text-xs sm:text-sm font-medium text-neutral-600">
+              <span className="font-semibold text-brand-dark">
+                {computedStats.totalProjects} hồ sơ công trình
+              </span>
+              <span className="text-neutral-300" aria-hidden="true">
+                ·
+              </span>
+              <span className="font-semibold text-brand-dark">
+                {computedStats.totalCategories} lĩnh vực
+              </span>
+              <span className="text-neutral-300" aria-hidden="true">
+                ·
+              </span>
+              <span className="font-semibold text-brand-dark">
+                {computedStats.yearRange}
+              </span>
             </div>
           </div>
+        </section>
 
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════
-          SHOWCASE CARDS & PROJECT LIST (Sliding up and covering the background)
-      ══════════════════════════════════════════════════════════════════ */}
-      <section className="relative z-20 pt-2 sm:pt-3 pb-16">
-        {/* Soft background fade: transparent at top so background image softly shows, dissolving smoothly into #F0F7F4 */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#F0F7F4]/80 via-[140px] to-[#F0F7F4] -z-10 pointer-events-none" />
-        
-        {/* Soft blur transition edge extending slightly above the cards */}
-        <div 
-          className="absolute -top-12 sm:-top-16 inset-x-0 h-12 sm:h-16 bg-gradient-to-t from-[#F0F7F4]/60 to-transparent pointer-events-none -z-10"
-        />
-
-        <div className="container mx-auto px-4 md:px-6">
-
-          {/* 4 Showcase Cards Grid (Matching Image 1 exact layout) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5 lg:gap-5 mb-12 sm:mb-16">
-            {highlightSectors.map((sector, idx) => (
-              <div
-                key={idx}
-                onClick={() => handleSectorClick(sector.filterCategory)}
-                className="group cursor-pointer bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100/90"
+        {/* ══════════════════════════════════════════════════════════════════
+            PROJECT LIST & CATEGORY FILTER SECTION
+        ══════════════════════════════════════════════════════════════════ */}
+        <section className="py-6 sm:py-8 lg:py-10 bg-white" aria-labelledby="projects-list-heading">
+          <div className="site-container">
+            {/* Heading & Live Status */}
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-4 sm:mb-5">
+              <h2
+                id="projects-list-heading"
+                className="text-xl sm:text-2xl font-bold font-heading text-brand-dark"
               >
-                {/* Card Top Image */}
-                <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-                  <img
-                    src={sector.image}
-                    alt={sector.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-
-                {/* Card Body */}
-                <div className="p-3.5 sm:p-4 flex flex-col flex-grow">
-                  {/* Pill Badge */}
-                  <div className="mb-2">
-                    <span className="inline-block px-2.5 py-0.5 rounded-md text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#15803D] bg-[#E8F5E9]">
-                      {sector.badge}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-[13px] sm:text-[13.5px] xl:text-[14px] tracking-tight font-bold font-heading text-[#0F172A] group-hover:text-[#15803D] transition-colors mb-1.5 leading-snug line-clamp-1">
-                    {sector.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[11px] sm:text-xs text-gray-500 leading-relaxed mb-3.5 flex-grow min-h-[36px] line-clamp-2">
-                    {sector.desc}
-                  </p>
-
-                  {/* Footer link: Tìm hiểu thêm > */}
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-[#15803D] group-hover:text-[#166534] transition-colors mt-auto pt-2 border-t border-gray-50">
-                    <span>Tìm hiểu thêm</span>
-                    <div className="w-5 h-5 rounded-full border border-gray-400 group-hover:border-[#15803D] flex items-center justify-center transition-colors">
-                      <ChevronRight size={11} className="text-gray-500 group-hover:text-[#15803D]" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ══════════════════════════════════════════════════════════════════
-              SEAMLESS CONTINUATION: PROJECT LIST IN THE EXACT SAME CARD STYLE
-          ══════════════════════════════════════════════════════════════════ */}
-          <div id="projects-list-anchor" className="scroll-mt-24 pt-4 pb-16">
-            
-            {/* Category Filter Tabs (Pill style matching the theme) */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-8 sm:mb-10">
-              {projectCategories.map((category) => {
-                const isActive = activeCategory === category.value;
-                return (
-                  <button
-                    key={category.value}
-                    onClick={() => setActiveCategory(category.value)}
-                    className={`px-4 sm:px-5 py-2 rounded-full text-xs sm:text-[13px] font-medium transition-all duration-300 ${
-                      isActive
-                        ? "bg-[#15803D] text-white shadow-md font-semibold"
-                        : "bg-white text-gray-600 hover:bg-gray-100 hover:text-gray-900 border border-gray-200/90 shadow-2xs"
-                    }`}
-                  >
-                    {category.label}
-                  </button>
-                );
-              })}
+                Danh sách công trình
+              </h2>
+              <p aria-live="polite" className="text-xs sm:text-sm text-neutral-500">
+                Đang hiển thị {filteredProjects.length} / {projects.length} công trình
+              </p>
             </div>
 
-            {/* All Projects Grid in the exact same 4-column card format */}
-            <motion.div 
-              layout
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4.5 lg:gap-5"
+            {/* Category Filter Chip Bar */}
+            <div className="mb-6 sm:mb-8 overflow-hidden">
+              <div
+                role="region"
+                aria-label="Bộ lọc lĩnh vực dự án"
+                className="flex items-center gap-2 overflow-x-auto py-1 px-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              >
+                {categoryChips.map((cat) => {
+                  const isActive = activeCategory === cat.value;
+                  return (
+                    <button
+                      key={cat.value}
+                      type="button"
+                      onClick={() => handleCategoryChange(cat.value)}
+                      aria-pressed={isActive}
+                      className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 min-h-[44px] h-11 shrink-0 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 ${
+                        isActive
+                          ? "bg-brand-primary text-white shadow-sm font-semibold"
+                          : "bg-white text-neutral-700 hover:bg-neutral-100 hover:text-neutral-900 border border-neutral-200/80 shadow-2xs"
+                      }`}
+                    >
+                      <span>{cat.label}</span>
+                      <span
+                        className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
+                          isActive
+                            ? "bg-white/20 text-white"
+                            : "bg-neutral-100 text-neutral-600"
+                        }`}
+                      >
+                        {cat.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Project Grid: 1 col mobile, 2 col tablet, 3 col desktop */}
+            <motion.div
+              layout={!shouldReduceMotion}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
               <AnimatePresence mode="popLayout">
                 {filteredProjects.map((project) => (
                   <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.3 }}
                     key={project.id}
+                    layout={!shouldReduceMotion}
+                    initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.98 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={shouldReduceMotion ? undefined : { opacity: 0, scale: 0.96 }}
+                    transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
                     className="h-full"
                   >
-                    <Link href={`/projects/${project.slug}`} className="block h-full group">
-                      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full border border-gray-100/90">
-                        
-                        {/* Card Image */}
-                        <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
-                          <img 
-                            src={project.image} 
-                            alt={project.name} 
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                        </div>
-
-                        {/* Card Body */}
-                        <div className="p-4 sm:p-4.5 flex flex-col flex-grow">
-                          {/* Pill Badge */}
-                          <div className="mb-2">
-                            <span className="inline-block px-2.5 py-0.5 rounded-md text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-[#15803D] bg-[#E8F5E9]">
-                              {project.categoryLabel}
-                            </span>
-                          </div>
-
-                          {/* Title */}
-                          <h3 className="text-sm sm:text-[15px] font-bold font-heading text-[#0F172A] group-hover:text-[#15803D] transition-colors mb-1.5 leading-snug line-clamp-2 min-h-[40px]">
-                            {project.name}
-                          </h3>
-
-                          {/* Description */}
-                          <p className="text-[11px] sm:text-xs text-gray-500 leading-relaxed mb-3 flex-grow line-clamp-2 min-h-[38px]">
-                            {project.shortDescription}
-                          </p>
-
-                          {/* Footer link: Tìm hiểu thêm > */}
-                          <div className="flex items-center gap-1.5 text-xs font-semibold text-[#15803D] group-hover:text-[#166534] transition-colors mt-auto pt-2 border-t border-gray-50">
-                            <span>Tìm hiểu thêm</span>
-                            <div className="w-5 h-5 rounded-full border border-gray-400 group-hover:border-[#15803D] flex items-center justify-center transition-colors">
-                              <ChevronRight size={11} className="text-gray-500 group-hover:text-[#15803D]" />
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </Link>
+                    <ProjectCard project={project} />
                   </motion.div>
                 ))}
               </AnimatePresence>
             </motion.div>
 
+            {/* Empty State */}
             {filteredProjects.length === 0 && (
-              <div className="text-center text-gray-500 py-16">
-                Đang cập nhật thêm dự án trong danh mục này...
+              <div className="text-center py-16 px-4">
+                <p className="text-neutral-600 mb-4 text-base">
+                  Không tìm thấy hồ sơ công trình nào trong lĩnh vực này.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => handleCategoryChange("all")}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-primary text-white font-semibold hover:bg-brand-gold-dark transition-colors min-h-[44px] cursor-pointer"
+                >
+                  Xem tất cả
+                </button>
               </div>
             )}
-
           </div>
+        </section>
+      </main>
 
-        </div>
-      </section>
-      
       <CTASection />
       <Footer />
     </div>
   );
 }
+
+export default ProjectsClient;

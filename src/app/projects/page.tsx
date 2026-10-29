@@ -1,4 +1,4 @@
-import { getAllProjects, projectCategories } from "@/lib/projects";
+import { getAllProjects, getProjectStats, projectCategories } from "@/lib/projects";
 import { ProjectsClient } from "@/components/projects/ProjectsClient";
 import type { Metadata } from "next";
 
@@ -9,6 +9,13 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   const projects = getAllProjects();
+  const stats = getProjectStats(projects);
 
-  return <ProjectsClient projects={projects} projectCategories={projectCategories} />;
+  return (
+    <ProjectsClient
+      projects={projects}
+      stats={stats}
+      projectCategories={projectCategories}
+    />
+  );
 }
