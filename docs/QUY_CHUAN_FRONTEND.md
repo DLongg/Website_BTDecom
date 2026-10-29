@@ -1,6 +1,7 @@
 # Quy chuẩn frontend BT DECOM
 
 Cập nhật 12/10/2026 theo bản sửa trang chủ. Hero, phần Tin Tức & Sự Kiện, dải khách hàng/đối tác và CTA được giữ lại giao diện ban đầu theo yêu cầu người dùng.
+Cập nhật 29/10/2026: Bổ sung quy chuẩn chuẩn mực cho Trang Dự án (`/projects` và `/projects/[slug]`).
 
 ## Màu và font
 
@@ -57,6 +58,54 @@ Dùng sentence case; cân bằng dòng tiêu đề. Màu xanh sáng chỉ dùng 
 - Dải khách hàng/đối tác giữ nguyên bản cũ theo yêu cầu: tiêu đề “Khách hàng & Đối tác chiến lược tiêu biểu”, 5 tên đơn vị chạy ngang và dừng khi hover, class `py-16 md:py-20 bg-white border-y border-gray-100 overflow-hidden`. Không hiển thị thêm logo hoặc lời chứng thực mới.
 - Theo yêu cầu ngày 12/10, giữ phần “Tin Tức & Sự Kiện” của bản cũ với 3 bài đầu trong `src/data/news.ts`, bố cục thẻ desktop/mobile và liên kết xem tất cả. Không lọc `status`/`publishedAt`; giữ nguyên dữ liệu và route hiện có.
 - Ảnh công trình dùng tài nguyên sẵn có trong repo; WebP tối ưu ở `public/images/home/`. Giữ ảnh gốc và nguồn Markdown.
+
+## Trang Dự án (`/projects` và `/projects/[slug]`)
+
+### 1. Chuẩn hóa danh mục và dữ liệu
+- **Nguồn nhãn danh mục duy nhất**: Sử dụng `CATEGORY_LABELS` khai báo trong `src/lib/projects.ts` gồm 4 nhóm chính:
+  - `lighting`: "Chiếu sáng"
+  - `substation`: "Trạm biến áp & lưới điện"
+  - `electrical`: "Hệ thống điện"
+  - `me`: "Cơ điện M&E"
+- Đồng bộ hiển thị thống nhất trên toàn bộ trang danh sách, thẻ dự án, badge trên trang chi tiết và bộ lọc.
+- Thống kê số lượng dự án (`ProjectStats`) được tính toán động từ Markdown thông qua `getProjectStats()`.
+
+### 2. Tối ưu ảnh tĩnh WebP và ngân sách hiệu năng
+- **Quy trình tối ưu ảnh tĩnh WebP**: Sử dụng script `scripts/optimize-project-images.mjs` để xử lý và đồng bộ toàn bộ ảnh từ thư mục gốc `public/images/projects/<slug>/` sang `public/images/projects-web/<slug>/`.
+- Định dạng hai kích thước chuẩn:
+  - `-card.webp` (chiều rộng tối đa 800px, chất lượng 80): phục vụ danh sách `/projects` và các thẻ liên quan.
+  - `-full.webp` (chiều rộng tối đa 1600px, chất lượng 85): phục vụ Hero và các khối chi tiết trong bài viết `/projects/[slug]`.
+- **Ngân sách ảnh**: Tổng dung lượng tải ảnh trên trang danh sách `/projects` nghiêm ngặt dưới 4 MB (thực tế tối ưu đạt ~2.8 MB cho 26 dự án, giảm >95% so với baseline 57.9 MB ban đầu).
+
+### 3. Quy chuẩn thành phần thẻ `ProjectCard` và bộ lọc danh mục
+- **Tỷ lệ khung ảnh**: Khung cố định `aspect-[4/3]`, `overflow-hidden`, bo góc `rounded-xl`.
+- **Phân cấp thông tin trên thẻ**:
+  - Badge danh mục: kích thước 12px, nền `brand-light`, viền mảnh.
+  - Tiêu đề dự án: 18px (`text-lg font-semibold`), giới hạn hiển thị tối đa 2 dòng (`line-clamp-2`).
+  - Dòng thông tin phụ: 14px (`text-sm text-neutral-500`), hiển thị Địa điểm và chỉ hiển thị Năm thực hiện (bỏ phần trạng thái tiến độ để đảm bảo ngắn gọn; trạng thái tiến độ chỉ hiển thị trên trang chi tiết).
+- **Tối ưu tải trang**: Thẻ `<Link>` sử dụng `prefetch={false}` để tránh kích hoạt tải sớm toàn bộ trang chi tiết và tài nguyên ảnh khi người dùng cuộn qua danh sách.
+- **Bộ lọc chip danh mục**:
+  - Chiều cao vùng chạm tối thiểu `min-h >= 44px` (đạt chuẩn tiếp cận WCAG cho thiết bị di động).
+  - Trạng thái lựa chọn thể hiện rõ bằng `aria-pressed="true|false"` kết hợp màu sắc nhận diện thương hiệu.
+  - Cơ chế đồng bộ URL: Đồng bộ query param `?cat=<key>` qua `window.location.search` và `window.history.replaceState` hoàn toàn ở phía client (không dùng `useSearchParams` từ Server Component để bảo toàn khả năng Static HTML Export đầy đủ 26 dự án).
+
+### 4. Quy chuẩn trang chi tiết `/projects/[slug]`
+- **SEO & Metadata**: Khai báo hàm động `generateMetadata` trả về `<title>` chuẩn cấu trúc `${project.name} | BT DECOM`, thẻ mô tả `description`, và OpenGraph hình ảnh `article` riêng biệt cho từng dự án.
+- **Bố cục Hero**:
+  - Chiều cao giới hạn hợp lý: `h-[min(56svh,440px)] md:h-[min(70vh,560px)]` (bỏ chiều cao tĩnh `h-[70vh] min-h-[520px]`).
+  - Sử dụng `next/image` với `fill`, `priority`, `sizes="100vw"`.
+  - Badge lĩnh vực lấy nhãn canonical từ `CATEGORY_LABELS`, dùng màu thương hiệu chuẩn (`brand-primary`), bỏ bóng đổ nặng và hiệu ứng glow.
+  - Bổ sung `id="main-content" tabIndex={-1}` ngay sau `<Header />` để skip-link hỗ trợ bàn phím điều hướng trực tiếp đến nội dung chính.
+- **Thanh thông tin (Info Bar)**:
+  - Lưới 2 cột trên mobile và 4 cột trên desktop phân cách bằng `gap-px bg-white/10` kết hợp nền `bg-brand-dark` cho từng ô để tránh lỗi đứt viền của `divide-x`.
+  - Nhãn thông số tăng lên 13px (`text-[13px] uppercase tracking-wider text-white/70`), icon dùng `brand-accent`, giá trị hiển thị giữ nguyên trạng thái thi công (`project.year`).
+- **Khối nội dung bài viết (`<article>`)**:
+  - Khử trùng lặp ảnh Hero: Section 01 tuyệt đối không lặp lại ảnh bìa Hero. Ảnh bìa lấy từ `gallery[0]`, các ảnh đưa vào nội dung bắt đầu từ `gallery.slice(1)`. Các dự án chỉ có 1 ảnh duy nhất sẽ hiển thị Section 01 dạng văn bản thuần kỹ thuật.
+  - Bỏ toàn bộ hiệu ứng glow mờ trang trí (`blur-2xl`), viền góc không tiêu chuẩn (`border-t-4 border-l-4...`) và class sai quy cách (`direction-rtl`).
+  - Toàn bộ ảnh nội dung chuyển sang `next/image` tỉ lệ chuẩn (`aspect-[4/3]` cho editorial, `aspect-[16/10]` cho lưới ảnh bổ sung) với thuộc tính `alt` mô tả rõ ràng theo tên dự án: Section `idx` dùng `${project.name} – ảnh ${idx + 2}`, ảnh dư dùng `${project.name} – ảnh ${sections.length + i + 2}`.
+- **Điều hướng và dự án liên quan**:
+  - Điều hướng trước/sau: Hiển thị liên kết đến dự án liền kề trước (`Dự án trước: ${prev.name}`) và sau (`Dự án sau: ${next.name}`), có `aria-label` và xử lý biên sạch khi ở dự án đầu hoặc cuối.
+  - Khối "Dự án cùng lĩnh vực": Đặt ngay trước `<CTASection />`, gọi `getRelatedProjects(slug, category, 3)` để luôn hiển thị đúng 3 thẻ dự án đại diện trong cùng phân loại (hoặc bổ sung từ phân loại khác nếu thiếu), kèm liên kết "Xem tất cả dự án" dẫn tới bộ lọc tương ứng `/projects?cat=${project.category}`.
 
 ## Kiểm tra trước khi bàn giao
 
