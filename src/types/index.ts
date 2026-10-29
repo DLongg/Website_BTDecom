@@ -11,12 +11,23 @@ export interface Service {
 }
 
 // ===== Project =====
+export type ProjectCategory = "lighting" | "substation" | "electrical" | "me";
+
+export interface ProjectStats {
+  totalProjects: number;
+  totalCategories: number;
+  yearRange: string;
+  earliestYear: number;
+  latestYear: number;
+  counts?: Record<ProjectCategory, number>;
+}
+
 export interface Project {
   id: string;
   slug: string;
   name: string;
   location: string;
-  category: "lighting" | "me" | "substation" | "electrical";
+  category: ProjectCategory;
   categoryLabel: string;
   description: string;
   shortDescription: string;
@@ -25,6 +36,9 @@ export interface Project {
   client: string;
   area: string;
   year: string;
+  cardImage?: string;
+  yearNumber?: string;
+  status?: string;
 }
 
 // ===== News Article =====
