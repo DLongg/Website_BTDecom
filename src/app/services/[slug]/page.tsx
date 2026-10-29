@@ -28,7 +28,10 @@ export default async function ServiceDetailPage(props: { params: Promise<{ slug:
       
       {/* Banner */}
       <div className="pt-32 pb-20 bg-brand-dark text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1541888081622-1ce4471fbdab?w=1920&q=80')] bg-cover bg-center" />
+        <div
+          className="absolute inset-0 opacity-20 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1541888081622-1ce4471fbdab?w=1920&q=80')" }}
+        />
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <Link href="/services" className="inline-flex items-center gap-2 text-brand-gold hover:text-white transition-colors mb-6 text-sm font-medium">
             <ArrowLeft size={16} /> Quay lại các dịch vụ
