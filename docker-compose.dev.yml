@@ -1,0 +1,18 @@
+# PostgreSQL cho môi trường phát triển (máy local).
+# Chạy:   docker compose -f docker-compose.dev.yml up -d
+# Dừng:   docker compose -f docker-compose.dev.yml down
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: btdecom
+      POSTGRES_PASSWORD: btdecom_dev
+      POSTGRES_DB: btdecom
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
