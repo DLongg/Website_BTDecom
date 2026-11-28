@@ -8,7 +8,7 @@ const links = [
   { name: "Lĩnh vực hoạt động", href: "/services" },
   { name: "Danh mục dự án", href: "/projects" },
   { name: "Tin tức", href: "/news" },
-  { name: "Tuyển dụng", href: "/news?category=Tuyển dụng" },
+  { name: "Tuyển dụng", href: "/tuyen-dung" },
 ];
 
 export function Footer() {

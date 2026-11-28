@@ -128,6 +128,14 @@ h1, h2, h3, h4, h5, h6 {
   .home-section { padding-block: 5rem; }
 }
 
+@media (min-width: 1536px) {
+  .site-container { width: min(100% - 4rem, 90rem); }
+}
+
+@media (min-width: 1920px) {
+  .site-container { width: min(100% - 5rem, 100rem); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

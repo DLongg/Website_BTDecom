@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CTASection } from "@/components/home/CTASection";
-import { RecruitmentHub } from "@/components/news/RecruitmentHub";
 import { RecruitmentBanner } from "@/components/news/RecruitmentBanner";
 import type { NewsArticle } from "@/types";
 import {
@@ -174,7 +173,7 @@ export function NewsClient({ articles }: NewsClientProps) {
         </div>
 
         {/* Banner Content */}
-        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 relative z-10 max-w-[1440px] mx-auto">
+        <div className="site-container relative z-10">
           <div className="max-w-2xl">
             <span className="text-white/80 text-xs sm:text-[13px] font-bold tracking-widest uppercase mb-2 block font-heading">
               TIN TỨC & SỰ KIỆN
@@ -205,7 +204,7 @@ export function NewsClient({ articles }: NewsClientProps) {
       ══════════════════════════════════════════════════════════════════ */}
       <section
         aria-label="Thanh công cụ lọc chuyên mục và tìm kiếm"
-        className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-6 sm:pt-8 pb-4"
+        className="site-container pt-6 sm:pt-8 pb-4"
       >
         <div className="bg-white rounded-2xl border border-gray-200/90 p-3 sm:p-4 shadow-2xs flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3 sm:gap-4">
           {/* Category Filter Chips with Count Badges */}
@@ -272,20 +271,14 @@ export function NewsClient({ articles }: NewsClientProps) {
       <section
         id="main-content"
         tabIndex={-1}
-        className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 pt-2 pb-16 flex-grow outline-none"
+        className="site-container pt-2 pb-16 flex-grow outline-none"
       >
-        {/* Dedicated Recruitment Hub (When category === "Tuyển dụng" and no active search) */}
-        {selectedCategory === "Tuyển dụng" && searchQuery.trim() === "" ? (
-          <RecruitmentHub />
-        ) : (
+        {/* Recruitment Banner: dẫn sang trang /tuyen-dung (tab "Tất cả" và "Tuyển dụng", khi không tìm kiếm) */}
+        {(selectedCategory === "all" || selectedCategory === "Tuyển dụng") && searchQuery.trim() === "" && (
+          <RecruitmentBanner className="mb-8 sm:mb-10" />
+        )}
+
           <>
-            {/* Recruitment Banner (When category === "all" and no active search) */}
-            {selectedCategory === "all" && searchQuery.trim() === "" && (
-              <RecruitmentBanner
-                onSelectRecruitment={() => handleCategoryChange("Tuyển dụng")}
-                className="mb-8 sm:mb-10"
-              />
-            )}
 
             {/* Featured Article Hero Card (Top of page 1 when All category & no search) */}
             {featuredArticle && (
@@ -502,7 +495,6 @@ export function NewsClient({ articles }: NewsClientProps) {
               )}
             </div>
           </>
-        )}
       </section>
 
       <CTASection />

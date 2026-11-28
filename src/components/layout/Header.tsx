@@ -14,7 +14,7 @@ const links = [
   { name: "Dịch vụ", href: "/services" },
   { name: "Dự án", href: "/projects" },
   { name: "Tin tức", href: "/news" },
-  { name: "Liên hệ", href: "/contact" },
+  { name: "Tuyển dụng", href: "/tuyen-dung" },
 ];
 
 function subscribeToScroll(callback: () => void) {

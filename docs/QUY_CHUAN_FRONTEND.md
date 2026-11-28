@@ -29,7 +29,7 @@ Dùng sentence case; cân bằng dòng tiêu đề. Màu xanh sáng chỉ dùng 
 ## Bố cục
 
 - Không dùng `zoom` toàn trang hoặc che tràn ngang bằng `overflow-x: hidden` trên body.
-- `site-container`: tối đa 1.280 px, lề 20 px trên mobile, 24 px từ 768 px.
+- `site-container`: tối đa 1.280 px (từ 768 px), nới lên 1.440 px từ 1.536 px và 1.600 px từ 1.920 px; lề 20 px trên mobile, 24 px từ 768 px, 32 px từ 1.536 px và 40 px từ 1.920 px.
 - `home-section`: khoảng đệm dọc 48 px mobile, 80 px từ 768 px.
 - Header cao 72 px mobile, 88 px desktop. Trang con tiếp tục có padding bù fixed header.
 - Hero giữ video nền và slider cũ; `h-svh`, min-height 640 px. Slider ẩn dưới 1.024 px; nút “Xem dự án” thay thế trên mobile.
